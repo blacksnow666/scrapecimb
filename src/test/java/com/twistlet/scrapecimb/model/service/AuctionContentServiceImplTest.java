@@ -37,6 +37,32 @@ public class AuctionContentServiceImplTest {
 
 	@Test
 	public void testToAuctionHouse() throws JsonProcessingException {
+		Map<String, String> map = new LinkedHashMap<String, String>();
+		map.put("Reference No", "DC10008179");
+		map.put("Price From (RM)", "29,160.00");
+		map.put("Market Price (RM)", "50,000.00");
+		map.put("Address",
+				"44, 3rd Floor, Block D Jalan Mulia, Taman Mulia Jaya Ampang, Area");
+		map.put("Area", "AMPANG");
+		map.put("State", "Selangor");
+		map.put("Size", "528.00 Sqft.");
+		map.put("Restriction", "Not Stated");
+		map.put("Property Description",
+				"3rd floor of 5 storey low cost flat, 2 bedroom(s)");
+		map.put("Auction Date & Time", "Saturday, 16 Aug 2014,");
+		map.put("Auction Venue", "Hotel Istana, Wilayah Persekutuan");
+		map.put("Auctioneer",
+				"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan");
+		map.put("url", "http://www.cimb.com.my/");
+		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":\"44, 3rd Floor, Block D Jalan Mulia, Taman Mulia Jaya Ampang, Area\",\"area\":\"AMPANG\",\"state\":\"Selangor\",\"sqFeet\":528.0,\"restriction\":\"Not Stated\",\"propertyDescription\":\"3rd floor of 5 storey low cost flat, 2 bedroom(s)\",\"auctionDate\":1408118400000,\"auctionLocation\":\"Hotel Istana, Wilayah Persekutuan\",\"auctionCompany\":\"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan\",\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToAuctionHouseNothing() throws JsonProcessingException {
 		Map<String, String> nothing = new LinkedHashMap<String, String>();
 		AuctionHouse auctionHouse = sut.toAuctionHouse(nothing);
 		ObjectMapper objectMapper = new ObjectMapper();
