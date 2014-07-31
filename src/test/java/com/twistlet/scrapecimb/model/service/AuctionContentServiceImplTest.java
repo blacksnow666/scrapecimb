@@ -36,7 +36,7 @@ public class AuctionContentServiceImplTest {
 	}
 
 	@Test
-	public void testToAuctionHouse() throws JsonProcessingException {
+	public void testToAuctionHouseFull() throws JsonProcessingException {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("Reference No", "DC10008179");
 		map.put("Price From (RM)", "29,160.00");
@@ -68,6 +68,72 @@ public class AuctionContentServiceImplTest {
 		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
 		String expected = "{\"url\":null,\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToAuctionHousePriceYesMarketYes()
+			throws JsonProcessingException {
+		Map<String, String> map = new LinkedHashMap<String, String>();
+		map.put("Price From (RM)", "29,160.00");
+		map.put("Market Price (RM)", "50,000.00");
+		map.put("url", "http://www.cimb.com.my/");
+		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToAuctionHousePriceNoMarketNo()
+			throws JsonProcessingException {
+		Map<String, String> map = new LinkedHashMap<String, String>();
+		map.put("url", "http://www.cimb.com.my/");
+		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToAuctionHousePriceYesMarketNo()
+			throws JsonProcessingException {
+		Map<String, String> map = new LinkedHashMap<String, String>();
+		map.put("Price From (RM)", "29,160.00");
+		map.put("url", "http://www.cimb.com.my/");
+		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToAuctionHousePriceNoMarketYes()
+			throws JsonProcessingException {
+		Map<String, String> map = new LinkedHashMap<String, String>();
+		map.put("Market Price (RM)", "50,000.00");
+		map.put("url", "http://www.cimb.com.my/");
+		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":50000.0,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToAuctionHousePriceYesZeroMarketYes()
+			throws JsonProcessingException {
+		Map<String, String> map = new LinkedHashMap<String, String>();
+		map.put("Price From (RM)", "0.00");
+		map.put("Market Price (RM)", "50,000.00");
+		map.put("url", "http://www.cimb.com.my/");
+		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":0.0,\"priceMarket\":50000.0,\"percentage\":null,\"difference\":50000.0,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
 		assertEquals(expected, actual);
 	}
 

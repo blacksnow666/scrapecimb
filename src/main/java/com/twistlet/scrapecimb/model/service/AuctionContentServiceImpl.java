@@ -53,11 +53,13 @@ public class AuctionContentServiceImpl implements AuctionContentService {
 				x -> auctionHouse.setPriceMarket(toDouble(x)));
 		if ((auctionHouse.getPriceAuction() != null)
 				&& (auctionHouse.getPriceMarket() != null)) {
-			auctionHouse
-					.setPercentage((auctionHouse.getPriceMarket() / auctionHouse
-							.getPriceAuction()) * 100.00);
-			auctionHouse.setDifference(auctionHouse.getPriceMarket()
-					- auctionHouse.getPriceAuction());
+			double auction = auctionHouse.getPriceAuction();
+			double market = auctionHouse.getPriceMarket();
+			if (auction != 0.00) {
+				double percentage = (market / auction) * 100.00;
+				auctionHouse.setPercentage(percentage);
+			}
+			auctionHouse.setDifference(market - auction);
 		}
 		ofNullable(map.get("Address")).ifPresent(
 				x -> auctionHouse.setAddress(trimMultiLine(x)));
