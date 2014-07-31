@@ -3,6 +3,7 @@ package com.twistlet.scrapecimb.model.service;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.jsoup.Jsoup;
@@ -10,6 +11,10 @@ import org.jsoup.nodes.Document;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 
 public class AuctionContentServiceImplTest {
 
@@ -31,8 +36,13 @@ public class AuctionContentServiceImplTest {
 	}
 
 	@Test
-	public void testToAuctionHouse() {
-		fail("Not yet implemented");
+	public void testToAuctionHouse() throws JsonProcessingException {
+		Map<String, String> nothing = new LinkedHashMap<String, String>();
+		AuctionHouse auctionHouse = sut.toAuctionHouse(nothing);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String actual = objectMapper.writeValueAsString(auctionHouse);
+		String expected = "{\"url\":null,\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		assertEquals(expected, actual);
 	}
 
 }
