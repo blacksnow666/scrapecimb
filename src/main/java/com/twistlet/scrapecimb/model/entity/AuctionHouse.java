@@ -6,6 +6,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Document
 public class AuctionHouse {
 
@@ -42,6 +44,7 @@ public class AuctionHouse {
 	private String propertyDescription;
 
 	@Indexed
+	@JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss aa", timezone = "Asia/Kuala_Lumpur")
 	private Date auctionDate;
 
 	@Indexed
