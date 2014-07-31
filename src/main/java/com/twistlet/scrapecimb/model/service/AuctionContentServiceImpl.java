@@ -25,7 +25,7 @@ public class AuctionContentServiceImpl implements AuctionContentService {
 	@Override
 	public Map<String, String> toMap(final Document document) {
 		Map<String, String> map = new LinkedHashMap<String, String>();
-		String cssSelector = "table tbody tr td table tbody tr td table.Content3 tbody tr td table.outerbox tbody tr";
+		String cssSelector = "table tbody tr td table tbody tr td table.Content3 tbody tr td table.outerbox tbody tr td table.Content tbody tr";
 		Elements elements = document.select(cssSelector);
 		for (Element tr : elements) {
 			Element elementKey = tr.select("td:eq(0)").first();
