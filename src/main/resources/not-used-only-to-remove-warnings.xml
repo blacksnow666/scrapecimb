@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean
+		id="org.springframework.integration.config.SourcePollingChannelAdapterFactoryBean#0.source"
+		class="java.lang.Object" />
+
+	<bean id="org.springframework.scheduling.support.CronTrigger#0"
+		class="java.lang.Object" />
+
+	<bean id="org.springframework.scheduling.support.PeriodicTrigger#0"
+		class="java.lang.Object" />
+
+	<bean
+		id="org.springframework.integration.config.SourcePollingChannelAdapterFactoryBean#1.source"
+		class="java.lang.Object" />
+
+	<bean id="auctionHouseRepository"
+		class="org.springframework.data.mongodb.repository.support.SimpleMongoRepository">
+		<constructor-arg index="0">
+			<null />
+		</constructor-arg>
+		<constructor-arg index="1">
+			<null />
+		</constructor-arg>
+	</bean>
+
+	<bean id="nullChannel" class="java.lang.Object" />
+
+</beans>

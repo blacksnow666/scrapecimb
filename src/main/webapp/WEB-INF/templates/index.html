@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Simple HTML5</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css"
+	rel="stylesheet" />
+
+</head>
+
+<body>
+	<h1>Html 5 Content</h1>
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>URL</th>
+					<th>State</th>
+					<th>Area</th>
+					<th>Profit</th>
+					<th>Percentage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item: ${list}">
+					<td><a href="#" th:href="${item.url}">Link</a></td>
+					<td th:text="${item.state}">State</td>
+					<td th:text="${item.area}">Area</td>
+					<td
+						th:text="${#numbers.formatDecimal(item.difference,3,'COMMA', 2, 'POINT')}">Difference</td>
+					<td
+						th:text="${#numbers.formatDecimal(item.percentage,3,2,'POINT')}">Percentage</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.datatables.net/1.10.1/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" th:src="@{/resources/js/index.js}"></script>
+</body>
+</html>

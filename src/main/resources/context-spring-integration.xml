@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-4.0.xsd">
+
+	<int:poller id="cronPoller" cron="0 0 2 * * ?" />
+
+	<int:inbound-channel-adapter ref="echoService"
+		method="echo" channel="channelBaseUrl">
+		<int:poller ref="cronPoller" />
+	</int:inbound-channel-adapter>
+
+	<int:channel id="channelBaseUrl" datatype="java.lang.String" />
+
+	<int:service-activator ref="documentService"
+		method="get" input-channel="channelBaseUrl" output-channel="channelBaseDocument" />
+
+	<int:channel id="channelBaseDocument" datatype="org.jsoup.nodes.Document" />
+
+
+	<!-- from base, we extract the auction id from that page as a list -->
+	<!-- input = channelBaseDocument (Document) : output = channelListAuctionId 
+		(List<Long>) -->
+	<int:service-activator input-channel="channelBaseDocument"
+		output-channel="channelListAuctionId" ref="auctionIdService" method="listAuctionId" />
+
+	<int:channel id="channelListAuctionId" />
+
+	<int:splitter input-channel="channelListAuctionId"
+		output-channel="channelAuctionId" />
+
+	<int:channel id="channelAuctionId" datatype="java.lang.Long" />
+
+	<!-- from the auction id, we get the auction id url -->
+	<!-- input = channelAuctionId (Long) : output = channelAuctionIdUrl (String) -->
+	<int:service-activator input-channel="channelAuctionId"
+		output-channel="channelAuctionIdUrl" ref="urlListingMessageFormatService"
+		method="format" />
+
+	<int:channel id="channelAuctionIdUrl" datatype="java.lang.String" />
+
+	<int:service-activator ref="documentService"
+		method="get" input-channel="channelAuctionIdUrl" output-channel="channelAuctionIdDocument" />
+
+	<int:channel id="channelAuctionIdDocument" datatype="org.jsoup.nodes.Document" />
+
+	<!-- extract the url from the document, one document, multiple url -->
+	<!-- input = channelAuctionIdDocument (Document) : output = channelListAuctionUrl 
+		(List<String>) -->
+	<!-- TODO: -->
+	<int:service-activator input-channel="channelAuctionIdDocument"
+		output-channel="channelListAuctionUrlAnchorElement" ref="listAuctionUrlAnchorSelectorService"
+		method="select" />
+
+
+	<int:channel id="channelListAuctionUrlAnchorElement" />
+
+	<int:splitter input-channel="channelListAuctionUrlAnchorElement"
+		output-channel="channelAuctionUrlAnchorElement" />
+
+	<int:channel id="channelAuctionUrlAnchorElement" datatype="org.jsoup.nodes.Element" />
+
+	<int:service-activator input-channel="channelAuctionUrlAnchorElement"
+		output-channel="channelAuctionUrlText" expression="payload.attr('href')" />
+
+	<int:channel id="channelAuctionUrlText" datatype="java.lang.String" />
+
+	<int:service-activator input-channel="channelAuctionUrlText"
+		output-channel="channelAuctionUrlId" ref="auctionUrlIdRegularExpressionService"
+		method="extract" />
+
+	<int:channel id="channelAuctionUrlId" />
+
+	<int:service-activator input-channel="channelAuctionUrlId"
+		output-channel="channelAuctionUrl" ref="urlPageFormatService" method="format" />
+
+	<int:channel id="channelAuctionUrl" />
+
+
+	<!-- convert one url to one document -->
+	<!-- input = channelAuctionUrl (String) : output = channelAuctionDocument 
+		(Document) -->
+	<int:service-activator ref="documentService"
+		method="get" input-channel="channelAuctionUrl" output-channel="channelAuctionDocument" />
+
+	<int:channel id="channelAuctionDocument" />
+
+	<!-- convert one url to one map -->
+	<!-- input = channelAuctionDocument (Document) : output = channelAuctionMap 
+		(Map) -->
+
+	<int:service-activator ref="auctionContentService"
+		method="toMap" input-channel="channelAuctionDocument" output-channel="channelAuctionMap" />
+
+	<int:channel id="channelAuctionMap" />
+
+
+	<!-- convert one map to one entity -->
+	<!-- input = channelAuctionMap (Map) : output = channelAuctionObject (AuctionHouse) -->
+
+	<int:service-activator ref="auctionContentService"
+		method="toAuctionHouse" input-channel="channelAuctionMap"
+		output-channel="channelAuctionObject" />
+
+	<int:channel id="channelAuctionObject"
+		datatype="com.twistlet.scrapecimb.model.entity.AuctionHouse" />
+
+	<int:service-activator input-channel="channelAuctionObject"
+		output-channel="nullChannel" ref="auctionHouseRepository" method="save" />
+
+</beans>
