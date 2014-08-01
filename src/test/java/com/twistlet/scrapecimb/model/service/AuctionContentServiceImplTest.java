@@ -36,6 +36,56 @@ public class AuctionContentServiceImplTest {
 	}
 
 	@Test
+	public void testToMapWithSomeTrNoTd() throws IOException {
+		Document document = Jsoup.parse(new ClassPathResource(
+				"html/faulty-tr-but-no-td.html").getInputStream(), "UTF-8",
+				"http://www.cimb.com.my/");
+		Map<String, String> map = sut.toMap(document);
+		String expected = "{Industry=Banking, Name=CIMB, url=http://www.cimb.com.my/}";
+		assertEquals(expected, map.toString());
+	}
+
+	@Test
+	public void testToMapWithSomeTrNoTdPair() throws IOException {
+		Document document = Jsoup.parse(new ClassPathResource(
+				"html/faulty-tr-but-no-td-pair.html").getInputStream(),
+				"UTF-8", "http://www.cimb.com.my/");
+		Map<String, String> map = sut.toMap(document);
+		String expected = "{Industry=Banking, url=http://www.cimb.com.my/}";
+		assertEquals(expected, map.toString());
+	}
+
+	@Test
+	public void testToMapWithSomeEmptyTd00() throws IOException {
+		Document document = Jsoup.parse(new ClassPathResource(
+				"html/faulty-tr-but-no-td-value-00.html").getInputStream(),
+				"UTF-8", "http://www.cimb.com.my/");
+		Map<String, String> map = sut.toMap(document);
+		String expected = "{Industry=Banking, url=http://www.cimb.com.my/}";
+		assertEquals(expected, map.toString());
+	}
+
+	@Test
+	public void testToMapWithSomeEmptyTd01() throws IOException {
+		Document document = Jsoup.parse(new ClassPathResource(
+				"html/faulty-tr-but-no-td-value-01.html").getInputStream(),
+				"UTF-8", "http://www.cimb.com.my/");
+		Map<String, String> map = sut.toMap(document);
+		String expected = "{Industry=Banking, url=http://www.cimb.com.my/}";
+		assertEquals(expected, map.toString());
+	}
+
+	@Test
+	public void testToMapWithSomeEmptyTd10() throws IOException {
+		Document document = Jsoup.parse(new ClassPathResource(
+				"html/faulty-tr-but-no-td-value-10.html").getInputStream(),
+				"UTF-8", "http://www.cimb.com.my/");
+		Map<String, String> map = sut.toMap(document);
+		String expected = "{Industry=Banking, url=http://www.cimb.com.my/}";
+		assertEquals(expected, map.toString());
+	}
+
+	@Test
 	public void testToAuctionHouseFull() throws JsonProcessingException {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("Reference No", "DC10008179");
