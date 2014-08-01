@@ -1,11 +1,11 @@
 $(function() {
-	$('table.table').dataTable({
-		paging : false
-	});
+	$('table.table').dataTable({});
 	$("#form-crawl").submit(function() {
 		return confirm("Are you sure to crawl again?");
 	});
-	$("a.open").attr({
-		"target" : "_blank"
-	})
+	$("table").on("click", "a.open", function() {
+		$(this).attr({
+			"target" : "_blank"
+		});
+	});
 });
