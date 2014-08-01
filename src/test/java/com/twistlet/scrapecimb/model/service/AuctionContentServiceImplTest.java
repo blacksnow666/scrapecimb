@@ -57,7 +57,7 @@ public class AuctionContentServiceImplTest {
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
 		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":\"44, 3rd Floor, Block D Jalan Mulia, Taman Mulia Jaya Ampang, Area\",\"area\":\"AMPANG\",\"state\":\"Selangor\",\"sqFeet\":528.0,\"restriction\":\"Not Stated\",\"propertyDescription\":\"3rd floor of 5 storey low cost flat, 2 bedroom(s)\",\"auctionDate\":\"2014/08/16 12:00:00 AM\",\"auctionLocation\":\"Hotel Istana, Wilayah Persekutuan\",\"auctionCompany\":\"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan\",\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":\"44, 3rd Floor, Block D Jalan Mulia, Taman Mulia Jaya Ampang, Area\",\"area\":\"Ampang\",\"state\":\"Selangor\",\"sqFeet\":528.0,\"restriction\":\"Not Stated\",\"propertyDescription\":\"3rd floor of 5 storey low cost flat, 2 bedroom(s)\",\"auctionDate\":\"2014/08/16 12:00:00 AM\",\"auctionLocation\":\"Hotel Istana, Wilayah Persekutuan\",\"auctionCompany\":\"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan\",\"auctionId\":null,\"housingArea\":null}";
 		assertEquals(expected, actual);
 	}
 

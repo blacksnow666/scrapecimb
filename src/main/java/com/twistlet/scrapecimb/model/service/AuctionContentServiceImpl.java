@@ -1,6 +1,7 @@
 package com.twistlet.scrapecimb.model.service;
 
 import static java.util.Optional.*;
+import static org.apache.commons.lang3.text.WordUtils.*;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -63,8 +64,10 @@ public class AuctionContentServiceImpl implements AuctionContentService {
 		}
 		ofNullable(map.get("Address")).ifPresent(
 				x -> auctionHouse.setAddress(trimMultiLine(x)));
-		ofNullable(map.get("Area")).ifPresent(auctionHouse::setArea);
-		ofNullable(map.get("State")).ifPresent(auctionHouse::setState);
+		ofNullable(map.get("Area")).ifPresent(
+				x -> auctionHouse.setArea(capitalizeFully(x)));
+		ofNullable(map.get("State")).ifPresent(
+				x -> auctionHouse.setState(capitalizeFully(x)));
 		ofNullable(map.get("Size")).ifPresent(
 				x -> auctionHouse.setSqFeet(toSqFeet(x)));
 		ofNullable(map.get("Restriction")).ifPresent(

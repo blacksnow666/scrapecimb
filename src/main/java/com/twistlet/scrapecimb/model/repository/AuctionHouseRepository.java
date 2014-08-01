@@ -14,4 +14,7 @@ public interface AuctionHouseRepository extends
 
 	List<AuctionHouse> findByDifferenceGreaterThanAndPriceAuctionLessThan(
 			double diff, double price, Pageable pageable);
+
+	List<AuctionHouse> findByDifferenceGreaterThanAndPriceAuctionLessThanAndRestrictionNotIn(
+			double diff, double price, List<String> list, Pageable pageable);
 }

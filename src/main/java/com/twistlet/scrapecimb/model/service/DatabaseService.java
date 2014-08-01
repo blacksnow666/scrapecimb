@@ -6,5 +6,6 @@ import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 
 public interface DatabaseService {
 
-	List<AuctionHouse> findHighProfitLowCost(double profit, double cost);
+	List<AuctionHouse> findHighProfitLowCost(double profit, double value,
+			boolean includeBumi);
 }

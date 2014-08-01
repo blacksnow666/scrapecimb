@@ -4,7 +4,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
-<title>Simple HTML5</title>
+<title>Scrape: Auction</title>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet" />
@@ -14,14 +14,43 @@
 </head>
 
 <body>
-	<h1>Html 5 Content</h1>
+	<h1>
+		<a href="#" th:href="@{/}">Scrape: Auction</a>
+	</h1>
 	<div class="container">
+		<div>
+			<form id="form-crawl" class="form-inline" action="#"
+				th:action="@{/crawl}" method="post">
+				<button type="submit" class="btn btn-default">Crawl</button>
+			</form>
+		</div>
+		<div>
+			<form class="form-inline" action="#" th:action="@{/index}">
+				<div class="form-group">
+					<label for="profit">Minimum Profit</label> <input type="text"
+						class="form-control" id="profit" name="profit"
+						th:value="${#numbers.formatDecimal(profit,3,'NONE', 2, 'POINT')}" />
+				</div>
+				<div class="form-group">
+					<label for="value">Maximum Price</label> <input type="text"
+						class="form-control" id="value" name="value"
+						th:value="${#numbers.formatDecimal(value,3,'NONE', 2, 'POINT')}" />
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" name="nonBumiOnly"
+						th:checked="${nonBumiOnly}" /> Non-Bumi Only? </label>
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>URL</th>
 					<th>State</th>
 					<th>Area</th>
+					<th>Auction</th>
+					<th>Price</th>
 					<th>Profit</th>
 					<th>Percentage</th>
 				</tr>
@@ -31,6 +60,10 @@
 					<td><a href="#" th:href="${item.url}">Link</a></td>
 					<td th:text="${item.state}">State</td>
 					<td th:text="${item.area}">Area</td>
+					<td
+						th:text="${#numbers.formatDecimal(item.priceAuction,3,'COMMA', 2, 'POINT')}">Difference</td>
+					<td
+						th:text="${#numbers.formatDecimal(item.priceMarket,3,'COMMA', 2, 'POINT')}">Difference</td>
 					<td
 						th:text="${#numbers.formatDecimal(item.difference,3,'COMMA', 2, 'POINT')}">Difference</td>
 					<td

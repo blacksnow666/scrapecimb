@@ -1,5 +1,6 @@
 package com.twistlet.scrapecimb.model.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,20 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 	@Override
 	public List<AuctionHouse> findHighProfitLowCost(final double profit,
-			final double cost) {
-		return auctionHouseRepository
-				.findByDifferenceGreaterThanAndPriceAuctionLessThan(profit,
-						cost, new PageRequest(0, 250, Direction.DESC,
-								"difference"));
+			final double value, final boolean includeBumi) {
+		if (includeBumi) {
+			return auctionHouseRepository
+					.findByDifferenceGreaterThanAndPriceAuctionLessThan(profit,
+							value, new PageRequest(0, 500, Direction.DESC,
+									"difference"));
+		} else {
+			List<String> list = Arrays
+					.asList("Bumiputra Lot", "Malay Reserved");
+			return auctionHouseRepository
+					.findByDifferenceGreaterThanAndPriceAuctionLessThanAndRestrictionNotIn(
+							profit, value, list, new PageRequest(0, 500,
+									Direction.DESC, "difference"));
+		}
 	}
 
 }
