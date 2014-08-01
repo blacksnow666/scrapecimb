@@ -43,7 +43,6 @@ public class AuctionHouse {
 	@Indexed
 	private String propertyDescription;
 
-	@Indexed
 	@JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss aa", timezone = "Asia/Kuala_Lumpur")
 	private Date auctionDate;
 
