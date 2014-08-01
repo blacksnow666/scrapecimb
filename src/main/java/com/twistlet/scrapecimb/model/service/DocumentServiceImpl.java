@@ -19,8 +19,7 @@ public class DocumentServiceImpl implements DocumentService {
 			logger.info("Getting {}", uri);
 			return Jsoup.connect(uri.toString()).get();
 		} catch (IOException e) {
-			logger.error(e.toString());
+			throw new RuntimeException(e);
 		}
-		return null;
 	}
 }
