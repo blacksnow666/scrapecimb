@@ -14,7 +14,14 @@
 	<int:channel id="channelBaseUrl" datatype="java.lang.String" />
 
 	<int:service-activator ref="documentService"
-		method="get" input-channel="channelBaseUrl" output-channel="channelBaseDocument" />
+		method="get" input-channel="channelBaseUrl" output-channel="channelBaseDocument">
+		<int:request-handler-advice-chain>
+			<bean
+				class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice">
+				<property name="retryTemplate" ref="retryTemplate" />
+			</bean>
+		</int:request-handler-advice-chain>
+	</int:service-activator>
 
 	<int:channel id="channelBaseDocument" datatype="org.jsoup.nodes.Document" />
 
@@ -38,10 +45,19 @@
 		output-channel="channelAuctionIdUrl" ref="urlListingMessageFormatService"
 		method="format" />
 
-	<int:channel id="channelAuctionIdUrl" datatype="java.lang.String" />
+	<int:channel id="channelAuctionIdUrl" datatype="java.lang.String">
+		<int:dispatcher task-executor="taskExecutor" />
+	</int:channel>
 
 	<int:service-activator ref="documentService"
-		method="get" input-channel="channelAuctionIdUrl" output-channel="channelAuctionIdDocument" />
+		method="get" input-channel="channelAuctionIdUrl" output-channel="channelAuctionIdDocument">
+		<int:request-handler-advice-chain>
+			<bean
+				class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice">
+				<property name="retryTemplate" ref="retryTemplate" />
+			</bean>
+		</int:request-handler-advice-chain>
+	</int:service-activator>
 
 	<int:channel id="channelAuctionIdDocument" datatype="org.jsoup.nodes.Document" />
 
@@ -75,14 +91,23 @@
 	<int:service-activator input-channel="channelAuctionUrlId"
 		output-channel="channelAuctionUrl" ref="urlPageFormatService" method="format" />
 
-	<int:channel id="channelAuctionUrl" />
+	<int:channel id="channelAuctionUrl">
+		<int:dispatcher task-executor="taskExecutor" />
+	</int:channel>
 
 
 	<!-- convert one url to one document -->
 	<!-- input = channelAuctionUrl (String) : output = channelAuctionDocument 
 		(Document) -->
 	<int:service-activator ref="documentService"
-		method="get" input-channel="channelAuctionUrl" output-channel="channelAuctionDocument" />
+		method="get" input-channel="channelAuctionUrl" output-channel="channelAuctionDocument">
+		<int:request-handler-advice-chain>
+			<bean
+				class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice">
+				<property name="retryTemplate" ref="retryTemplate" />
+			</bean>
+		</int:request-handler-advice-chain>
+	</int:service-activator>
 
 	<int:channel id="channelAuctionDocument" />
 
@@ -108,5 +133,20 @@
 
 	<int:service-activator input-channel="channelAuctionObject"
 		output-channel="nullChannel" ref="auctionHouseRepository" method="save" />
+
+	<bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
+		<property name="retryPolicy">
+			<bean class="org.springframework.retry.policy.SimpleRetryPolicy">
+				<property name="maxAttempts" value="10" />
+			</bean>
+		</property>
+		<property name="backOffPolicy">
+			<bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+				<property name="initialInterval" value="1000" />
+				<property name="multiplier" value="5.0" />
+				<property name="maxInterval" value="60000" />
+			</bean>
+		</property>
+	</bean>
 
 </beans>

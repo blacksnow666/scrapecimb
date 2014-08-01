@@ -19,8 +19,10 @@
 	</appender>
 
 	<logger name="com.twistlet.scrapecimb.model.service" level="INFO" />
-	<logger name="org.springframework.data.elasticsearch" level="TRACE" />
-	<logger name="org.elasticsearch" level="TRACE" />
+	<logger name="org.springframework.data" level="INFO" />
+	<logger name="com.mongodb" level="INFO" />
+	<logger name="org.springframework.retry.support" level="INFO" />
+
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
