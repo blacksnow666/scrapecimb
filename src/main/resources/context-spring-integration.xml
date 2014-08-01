@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-4.0.xsd">
 
-	<int:poller id="cronPoller" cron="0 0 2 * * ?" />
+	<int:poller id="cronPoller" cron="0 15 7 * * ?" />
 
 	<int:inbound-channel-adapter ref="echoService"
 		method="echo" channel="channelBaseUrl">
