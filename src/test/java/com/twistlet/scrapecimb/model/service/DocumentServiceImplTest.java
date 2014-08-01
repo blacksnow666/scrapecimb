@@ -18,8 +18,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.core.io.ClassPathResource;
 
-import com.twistlet.scrapecimb.model.service.DocumentServiceImpl;
-
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Jsoup.class)
 public class DocumentServiceImplTest {
@@ -40,7 +38,7 @@ public class DocumentServiceImplTest {
 		assertEquals("Simple HTML5", document.title());
 	}
 
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void testGetIOException() throws IOException, URISyntaxException {
 		PowerMockito.mockStatic(Jsoup.class);
 		Connection connection1 = mock(Connection.class);
@@ -48,8 +46,7 @@ public class DocumentServiceImplTest {
 				.thenReturn(connection1);
 		when(connection1.get()).thenThrow(new IOException());
 		DocumentServiceImpl sut = new DocumentServiceImpl();
-		Document document = sut.get(new URI("http://www.google.com.my/").toString());
-		assertNull(document);
+		sut.get(new URI("http://www.google.com.my/").toString());
 	}
 
 }
