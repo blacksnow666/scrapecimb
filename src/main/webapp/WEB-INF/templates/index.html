@@ -57,7 +57,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="item: ${list}">
-					<td><a href="#" th:href="${item.url}">Link</a></td>
+					<td><a class="open" href="#" th:href="${item.url}">Link</a></td>
 					<td th:text="${item.state}">State</td>
 					<td th:text="${item.area}">Area</td>
 					<td
