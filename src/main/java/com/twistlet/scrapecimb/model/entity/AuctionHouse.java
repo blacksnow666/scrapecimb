@@ -15,6 +15,9 @@ public class AuctionHouse {
 	private String url;
 
 	@Indexed
+	private String ref;
+
+	@Indexed
 	private Double priceAuction;
 
 	@Indexed
@@ -64,6 +67,14 @@ public class AuctionHouse {
 
 	public void setUrl(final String url) {
 		this.url = url;
+	}
+
+	public String getRef() {
+		return ref;
+	}
+
+	public void setRef(final String ref) {
+		this.ref = ref;
 	}
 
 	public Double getPriceAuction() {

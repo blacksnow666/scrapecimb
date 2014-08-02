@@ -48,6 +48,7 @@ public class AuctionContentServiceImpl implements AuctionContentService {
 	public AuctionHouse toAuctionHouse(final Map<String, String> map) {
 		AuctionHouse auctionHouse = new AuctionHouse();
 		ofNullable(map.get("url")).ifPresent(auctionHouse::setUrl);
+		ofNullable(map.get("Reference No")).ifPresent(auctionHouse::setRef);
 		ofNullable(map.get("Price From (RM)")).ifPresent(
 				x -> auctionHouse.setPriceAuction(toDouble(x)));
 		ofNullable(map.get("Market Price (RM)")).ifPresent(

@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
@@ -19,10 +20,13 @@ import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 public class AuctionContentServiceImplTest {
 
 	AuctionContentServiceImpl sut;
+	ObjectMapper objectMapper;
 
 	@Before
 	public void init() {
 		sut = new AuctionContentServiceImpl();
+		objectMapper = new ObjectMapper();
+		objectMapper.setSerializationInclusion(Include.NON_NULL);
 	}
 
 	@Test
@@ -105,9 +109,8 @@ public class AuctionContentServiceImplTest {
 				"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":\"44, 3rd Floor, Block D Jalan Mulia, Taman Mulia Jaya Ampang, Area\",\"area\":\"Ampang\",\"state\":\"Selangor\",\"sqFeet\":528.0,\"restriction\":\"Not Stated\",\"propertyDescription\":\"3rd floor of 5 storey low cost flat, 2 bedroom(s)\",\"auctionDate\":\"2014/08/16 12:00:00 AM\",\"auctionLocation\":\"Hotel Istana, Wilayah Persekutuan\",\"auctionCompany\":\"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan\",\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"ref\":\"DC10008179\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":\"44, 3rd Floor, Block D Jalan Mulia, Taman Mulia Jaya Ampang, Area\",\"area\":\"Ampang\",\"state\":\"Selangor\",\"sqFeet\":528.0,\"restriction\":\"Not Stated\",\"propertyDescription\":\"3rd floor of 5 storey low cost flat, 2 bedroom(s)\",\"auctionDate\":\"2014/08/16 12:00:00 AM\",\"auctionLocation\":\"Hotel Istana, Wilayah Persekutuan\",\"auctionCompany\":\"Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan\"}";
 		assertEquals(expected, actual);
 	}
 
@@ -115,9 +118,8 @@ public class AuctionContentServiceImplTest {
 	public void testToAuctionHouseNothing() throws JsonProcessingException {
 		Map<String, String> nothing = new LinkedHashMap<String, String>();
 		AuctionHouse auctionHouse = sut.toAuctionHouse(nothing);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":null,\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{}";
 		assertEquals(expected, actual);
 	}
 
@@ -129,9 +131,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Market Price (RM)", "50,000.00");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":50000.0,\"percentage\":171.46776406035664,\"difference\":20840.0}";
 		assertEquals(expected, actual);
 	}
 
@@ -141,9 +142,8 @@ public class AuctionContentServiceImplTest {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\"}";
 		assertEquals(expected, actual);
 	}
 
@@ -154,9 +154,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Price From (RM)", "29,160.00");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":29160.0}";
 		assertEquals(expected, actual);
 	}
 
@@ -167,9 +166,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Market Price (RM)", "50,000.00");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":50000.0,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceMarket\":50000.0}";
 		assertEquals(expected, actual);
 	}
 
@@ -181,9 +179,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Market Price (RM)", "50,000.00");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":0.0,\"priceMarket\":50000.0,\"percentage\":null,\"difference\":50000.0,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":0.0,\"priceMarket\":50000.0,\"difference\":50000.0}";
 		assertEquals(expected, actual);
 	}
 
@@ -194,9 +191,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Auction Date & Time", "Saturday, 16 Aug 2014,");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":\"2014/08/16 12:00:00 AM\",\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"auctionDate\":\"2014/08/16 12:00:00 AM\"}";
 		assertEquals(expected, actual);
 	}
 
@@ -206,9 +202,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Auction Date & Time", "Saturday, 10 Aug 2014, 10:00 am");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":\"2014/08/10 10:00:00 AM\",\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"auctionDate\":\"2014/08/10 10:00:00 AM\"}";
 		assertEquals(expected, actual);
 	}
 
@@ -218,9 +213,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Auction Date & Time", "N/A");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\"}";
 		assertEquals(expected, actual);
 	}
 
@@ -230,9 +224,8 @@ public class AuctionContentServiceImplTest {
 		map.put("Price From (RM)", "N/A");
 		map.put("url", "http://www.cimb.com.my/");
 		AuctionHouse auctionHouse = sut.toAuctionHouse(map);
-		ObjectMapper objectMapper = new ObjectMapper();
 		String actual = objectMapper.writeValueAsString(auctionHouse);
-		String expected = "{\"url\":\"http://www.cimb.com.my/\",\"priceAuction\":null,\"priceMarket\":null,\"percentage\":null,\"difference\":null,\"address\":null,\"area\":null,\"state\":null,\"sqFeet\":null,\"restriction\":null,\"propertyDescription\":null,\"auctionDate\":null,\"auctionLocation\":null,\"auctionCompany\":null,\"auctionId\":null,\"housingArea\":null}";
+		String expected = "{\"url\":\"http://www.cimb.com.my/\"}";
 		assertEquals(expected, actual);
 	}
 
