@@ -53,6 +53,8 @@
 					<th>Price</th>
 					<th>Profit</th>
 					<th>Percentage</th>
+					<th>Previous<br />Auction<br />Count
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -69,6 +71,7 @@
 						th:text="${#numbers.formatDecimal(item.difference,3,'COMMA', 2, 'POINT')}">Difference</td>
 					<td
 						th:text="${#numbers.formatDecimal(item.percentage,3,2,'POINT')}">Percentage</td>
+					<td th:text="${item.previousAuctionCount}">PreviousAuctionCount</td>
 				</tr>
 			</tbody>
 		</table>
