@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class AuctionDates {
+public class AuctionDate {
 
 	@Id
 	private String id;
