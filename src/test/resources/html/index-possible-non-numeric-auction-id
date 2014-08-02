@@ -1,0 +1,885 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="A leading financial institution and home for all your personal and business financial needs">
+	<meta name="keywords" content="Malaysia, banks, consumer, businesses, personal, financing, loans, wealth management, treasury, CIMB Bank, CIMB Bank Group, CIMB, CIMB Islamic, Internet banking, fixed deposit, savings, current account, credit cards, hire purchase, personal financing, mastercard, visa, home loan, wealth management, mortgage, interest rates, bancassurance, unit trust, prime plan, preferred, online trading, investor relations, branch locator, trade finance, islamic banking, consumer banking, personal banking, business banking, foreign exchange, structured products, forex, Remittance, bank in malaysia">
+	<title>Welcome to CIMB PropertyMart</title>
+	<link rel="stylesheet" type="text/css" href="/propertymart/index.php?tpl=th001_style.css">
+	<script type="text/javascript" src="_js/basic.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/PropertyMart_tabCard.css" />
+	<link rel="stylesheet" type="text/css" href="css/PropertyMart_tabMenu.css" />
+	<script type="text/javascript" src="_js/PropertyMart_tabMenu.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="_css/CIMBBank_jkmegamenu.css" />
+	<script type="text/javascript" src="_js/jquery.min.js"></script>
+	<script type="text/javascript" src="_js/jkmegamenu.js">
+		/***********************************************
+		* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)
+		* This notice must stay intact for usage
+		* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code
+		***********************************************/
+	</script>
+    <link rel="shortcut icon" href="images/icon/cimb_bank.ico" >
+</head>
+<style type=text/css>
+    .outerbox {
+        BORDER: #cccccc 1px solid;
+    }
+    .theader {
+        FONT-WEIGHT: bold; FONT-SIZE: 8pt; FONT-FAMILY: Arial, Helvetica, sans-serif;
+    }
+    .selectedColumn {
+        FONT-WEIGHT: bold; FONT-SIZE: 8pt; FONT-FAMILY: Arial, Helvetica, sans-serif;
+    }
+</style>
+
+<body>
+<table width="980" border="0" cellpadding="0" cellspacing="0" align=center bgcolor="#FFFFFF">
+    <tr><td><img src="images/top_bg.jpg" width="980" height="15" /></td></tr>
+    <tr><td height="12"></td></tr>
+</table>
+<!--global presence : start-->
+<!-- <table width="996" border="0" cellpadding="0" cellspacing="0" align=center bgcolor="#FFFFFF"> -->
+<table width="980" border="0" cellpadding="0" cellspacing="0" align=center bgcolor="#FFFFFF">
+    <tr>
+        <td width="12"></td>
+        <td align="left"><a href="http://www.cimbbank.com.my/index.php?tpt=cimb_bank"><img src="images/cimb_bank-logo.gif" border="0" /></a></td>
+        <td align="right">
+	        <table border="0" cellpadding="0" cellspacing="0">
+	            <tr><td>
+                    <select name="select2" id="select2" onChange="MM_jumpMenuCIMBGroup('_blank',this,0);" style="font-size:10px;font-weight:lighter;color:#666666;border:1px solid #F2F2F2;">
+                        <option>Group Websites</option>
+                        <option value="http://www.cimb.com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CIMB Group</option>
+                        <option value="http://www.cimbislamic.com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CIMB Group Islamic</option>
+                        <optgroup label="Consumer Banking">
+                            <option value="http://www.cimbbank.com.my">CIMB Bank (Malaysia)</option>
+                            <option value="http://www.cimbbank.com.sg">CIMB Bank (Singapore)</option>
+                            <option value="http://www.cimbbank.com.kh">CIMB Bank (Cambodia)</option>
+                            <option value="http://www.cimbniaga.com">CIMB Niaga</option>
+                            <option value="http://www.cimbthai.com">CIMB Thai</option>
+                            <option value="http://www.directaccess.com.my">Direct Access</option>
+                            <option value="http://cb.cimbislamic.com">CIMB Islamic (Malaysia)</option>
+                            <option value="http://www.cimbniagasyariah.com">CIMB Niaga Syariah</option>
+                        </optgroup>
+                        <optgroup label="Investment Banking">
+                            <option value="http://www.ib.cimb.com">CIMB Investment</option>
+                        </optgroup>
+                        <optgroup label="Retail Equities">
+                            <option value="http://www.cimbsecurities.com">CIMB Securities</option>
+                        </optgroup>
+                        <optgroup label="Asset Management">
+                            <option value="http://www.cimb-principal.com">CIMB Principal</option>
+                            <option value="http://www.cimbetf.com">CIMB ETF</option>
+                            <option value="http://www.cwealthadvisors.com.my">CWA</option>
+                        </optgroup>
+                        <optgroup label="Insurance">
+                            <option value="http://www.cimbaviva.com">CIMB Aviva</option>
+                            <option value="http://www.cimbsunlife.co.id">CIMB Sun Life</option>
+                        </optgroup>
+                        <optgroup label="Online Services">
+                        	<option value="http://www.cimbclicks.com">CIMB Clicks</option>
+                        	<option value="http://www.cimbbizchannel.com">CIMB BizChannel</option>
+                        </optgroup>
+                    </select>
+	            </td></tr>
+	        </table>
+        </td>
+        <td width="12"></td>
+    </tr>
+</table>
+<!--global presence : end-->
+
+<!--menu : start-->
+<table width="980" border="0" cellpadding="0" cellspacing="0" align=center bgcolor="#FFFFFF">
+    <tr height="18">
+        <td width="12" rowspan="7"></td>
+        <td>&nbsp;</td>
+        <td width="12" rowspan="7"></td>
+    </tr>
+    <tr><td colspan="3">
+    	<table width="950" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="724">
+					<table width="724" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                        	<td width="10" bgcolor=#dc24lf></td>
+							<td width="170" align="center" bgcolor=#dc24lf><a href="/index.php?tpt=cimb_bank" class="Content_white_bold">Personal Banking</a></td>
+                            <td width="27"><img src="images/header/m_menu-on_right.gif" width="27" height="32" /></td>
+                            <td width="1" align="center" valign="middle" bgcolor="#dbdbdb"><img src="images/spacer.gif" width="1" height="1"></td>
+                            <td width="170" align="center" valign="middle" background="images/header/m_menu-bg.gif"><a href="/index.php?tpt=cimb_bbiz" class="Side_nv_title3">Commercial Banking</a></td>
+							<td width="27"><img src="images/header/m_menu-off_right.gif" width="27" height="32" /></td>
+                            <td width="319" align="center" valign="middle">
+                            </td>
+                        </tr>
+                    </table>
+		        </td>
+                <td>&nbsp;</td>
+                <td width="223" valign="middle" class="maroon">
+					 <table width="223" border="0" cellspacing="0" cellpadding="0">
+                        <tr class="maroon">
+                            <td width="100" class="maroon_bold" align=right>
+								You are in
+							</td>
+                            <td width="123" align=right>
+                                <select name="select" class="jumpmenu_side2" onChange="MM_jumpMenuCIMBGroup('_blank',this,0)">
+                                    <option value="http://www.cimbbank.com.my" selected >Malaysia</option>
+                                    <option value="http://www.cimbniaga.com">Indonesia</option>
+                                    <option value="http://www.cimbbank.com.sg">Singapore</option>
+                                    <option value="http://www.cimbthai.com">Thailand</option>
+                                    <option value="http://www.cimbbank.com.kh">Cambodia</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+		    </tr>
+		</table>
+	</td></tr>
+
+	<!-- <tr><td height="1"></td></tr> -->
+	<tr><td colspan="3">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top">
+					<table cellpadding=2 cellspacing=2 border=0 bgcolor="#ED1823" width=100% height=28 class="Content">
+					    <tr class="Content_white_bold">
+					        <td>&nbsp;&nbsp;&nbsp;<a href="/propertymart/" id="megaanchor" class="Content_white_bold">Property Auction</a>&nbsp;&nbsp;
+					            |&nbsp;&nbsp;&nbsp;<a href="/auction/auction.php?action=view1" id="megaanchor2" class="Content_white_bold">Car Auction</a>
+					        </td>
+					    </tr>
+					</table>
+				</td>
+				<td width="8"></td>
+				<td width="226" valign="top">
+					<table cellpadding=2 cellspacing=2 border=0 bgcolor="#780000" width=100% height=28 class="Content">
+						<tr class="Content_white_bold">
+							<td align="center">&nbsp;</td>
+						</tr>
+					</table>
+				</td>
+				<td width="10"></td>
+			</tr>
+		</table>
+	</td></tr>
+	<!-- <tr><td height="5"></td></tr> -->
+</table>
+<!--menu : end-->
+<!-- insert body of template here -->
+<table width="980" border="0" cellpadding="0" cellspacing="0" align=center bgcolor="#FFFFFF">
+	<!--
+	<tr height="1">
+        <td width="12" rowspan="2"></td>
+        <td><img src="images/spacer.gif" width="1" height="1"></td>
+        <td width="12" rowspan="2"></td>
+    </tr>
+    -->
+    <tr>
+    	<td width="12"><img src="images/spacer.gif" width="1" height="1"></td>
+    	<td valign="top">
+    		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    			<tr><td height="2"></td></tr>
+    		</table>
+		    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="725">
+						<!-- start: leftbar -->
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						    <tr><td>
+								<link rel="stylesheet" type="text/css" href="css/contentslider.css">
+	            				<script type="text/javascript" src="css/contentslider.js"></script>
+	            				<center>
+					            <div id="slider1" class="sliderwrapper">
+					                    <div class="contentdiv">
+					                        <table cellpadding=0 cellspacing=0 border=0 align=center>
+					                            <tr><td>
+					                                <img src="index.php?ch=1&pg=10&ac=1&bb=banner1" border=0 width=723 height=213>
+					                            </td></tr>
+					                        </table>
+					                    </div>
+					                    <div class="contentdiv">
+					                        <table cellpadding=0 cellspacing=0 border=0 align=center>
+					                            <tr><td>
+					                                <a href="http://www.auctionmart.my/cpm/register" target="_new">
+					                                    <img src="index.php?ch=1&pg=10&ac=20&bb=banner1" border=0 width=723 height=213>
+					                                </a>
+					                            </td></tr>
+					                        </table>
+					                    </div>
+					                    <div class="contentdiv">
+					                        <table cellpadding=0 cellspacing=0 border=0 align=center>
+					                            <tr><td>
+					                                <a href="http://www.auctionmart.my/cpm/auction_calendar" target="_new">
+					                                    <img src="index.php?ch=1&pg=10&ac=34&bb=banner1" border=0 width=723 height=213>
+					                                </a>
+					                            </td></tr>
+					                        </table>
+					                    </div>
+					            </div>
+					            <div id="paginate-slider1" class="pagination" >
+					            </div>
+					            <script type="text/javascript">
+					                featuredcontentslider.init({
+					                    id: "slider1",  //id of main slider DIV
+					                    contentsource: ["inline", ""],  //Valid values: ["inline", ""] or ["ajax", "path_to_file"]
+					                    toc: "#increment",  //Valid values: "#increment", "markup", ["label1", "label2", etc]
+					                    nextprev: ["<<", ">>"],  //labels for "prev" and "next" links. Set to "" to hide.
+					                    revealtype: "click", //Behavior of pagination links to reveal the slides: "click" or "mouseover"
+					                    //enablefade: [true, 0.05],  //[true/false, fadedegree]
+					                    enablefade: [false, 0.05],
+					                    autorotate: [true, 4000],  //[true/false, pausetime]
+					                    onChange: function(previndex, curindex){  //event handler fired whenever script changes slide
+					                        //previndex holds index of last slide viewed b4 current (1=1st slide, 2nd=2nd etc)
+					                        //curindex holds index of currently shown slide (1=1st slide, 2nd=2nd etc)
+					                    }
+					                })
+					            </script>
+					            </center>
+						    </td></tr>
+							<tr><td height="5" colspan="2"></td></tr>
+						    <tr><td valign="top">
+						    	<table width="725" cellpadding="0" cellspacing="0" border="0">
+						            <tr><td valign=top>
+						                <div id="contentTab1x" class="cardTitleTabs">
+						                    <ul><li><a href="#" rel="ct1"><span>What's New</span></a></li></ul>
+						                </div>
+						                <table width=100% border=0 cellpadding=0 cellspacing=0 bgcolor="#ffc1c2">
+						                    <tr><td>
+					                        <div class="cardTabDetails">
+					                            <div id="contentTab1x" class="tabcontent1">
+					                                <table width="700" border="0" align="center" cellpadding="0" cellspacing="10">
+					                                    <tr>
+					                                        <td><script type="text/javascript" src="index.php?ad=&ch=0&pg=0&zn=B&cdb="></script></td>
+					                                        <td><script type="text/javascript" src="index.php?ad=&ch=0&pg=0&zn=C&cdb="></script></td>
+					                                    </tr>
+					                                </table>
+					                            </div>
+					                    	</div>
+						                    </td></tr>
+						                </table>
+						            </td></tr>
+						            <tr><td><img src="images/side_bttm2.gif" width="725" height="5"></td></tr>
+						            <tr><td>&nbsp;</td></tr>
+						        </table>
+						    </td></tr>
+
+						    <tr><td class="Side_nv_title2">Properties Listing</td></tr>
+							<tr><td height="5"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+					    	<tr><td valign="top">
+							    <div id="contentTab" class="ddcolortabs">
+							        <ul>
+							            <li><a href="#" rel="ct1"><span>Mega Auction</span></a></li>
+							            <li><a href="#" rel="ct2"><span>Title Auction</span></a></li>
+							            <li><a href="#" rel="ct3"><span>Secondary Sale</span></a></li>
+							        </ul>
+							    </div>
+							    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr><td colspan=2 bgcolor="#e8e8e8"><img src="images/spacer.gif" width="1" height="1"></td><td></td></tr>
+									<tr>
+										<td width="2" bgcolor="#e8e8e8"><img src="images/spacer.gif" width="1" height="1"></td>
+										<td valign=top>
+											 <table width="100%" height="200" border="0" align="" cellpadding="0" cellspacing="10">
+												<tr><td valign=top>
+													<DIV class="tabcontainer">
+														<div id="ct1" class="tabcontent">
+															<!-- start: Mega Auction -->
+															<table width="100%" cellpadding="2" cellspacing="1" border="0" class="outerbox" align=center>
+																<theader>
+																<tr bgcolor="#ADABAC" class="button-on">
+															        <td class="theader" align="center" width="85">DATE</td>
+															        <td class="theader" align="center" width="60">TIME</td>
+															        <td class="theader">&nbsp;AUCTIONEER</td>
+															        <td class="theader" align="center" width="70">E-LISTING</td>
+															    </tr>
+																</theader>
+																																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10203" class="maroon"><b>Saturday<br>09 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Ken Auctioning Agency-Ipoh-Perak</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10204E" class="maroon"><b>Saturday<br>09 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Halim Bin Osman-Johor Bahru-Johor</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10211" class="maroon"><b>Saturday<br>09 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Henry Butcher Malaysia (Kuantan) Sdn Bhd-Kuantan-Pahang</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10209" class="maroon"><b>Saturday<br>16 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Property Auction House Sdn Bhd-Kuala Lumpur-Wilayah Persekutuan</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10208" class="maroon"><b>Saturday<br>16 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Ng Chan Mau & Co-Kuala Lumpur-Wilayah Persekutuan</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10207" class="maroon"><b>Saturday<br>23 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Palma Housing-Pulautikus-Penang</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10206" class="maroon"><b>Saturday<br>23 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Praise Million Sdn Bhd-Kuching-Sarawak</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10210" class="maroon"><b>Saturday<br>23 Aug 2014</b></a></td>
+																		<td align="center">
+																			<b>10:30 AM</b></td>
+																		<td>&nbsp;<b>Henry Butcher Malaysia (Malacca) Sdn Bhd-Melaka-Melaka</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10205" class="maroon"><b>Saturday<br>23 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Property Auction House Sdn Bhd-Kota Kinabalu-Sabah</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10212" class="maroon"><b>Saturday<br>23 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Property Auction House-Sandakan-Sabah</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="24" class="Content3">
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_mega&aucID=10213" class="maroon"><b>Saturday<br>23 Aug 2014</b></a></td>
+																		<td align="center">
+																			N/A</td>
+																		<td>&nbsp;<b>Eszam Auctioneer  Sdn Bhd-Seremban-Negeri Sembilan</b></td>
+																		<td align="center">
+																			N/A
+																		</td>
+																	</tr>
+															</table>
+															<!-- end: Mega Auction -->
+														</div>
+
+														<div id="ct2" class="tabcontent">
+															<!-- start: Title Auction -->
+															<table width="100%" cellpadding="2" cellspacing="1" border="0" class="outerbox" align=center>
+																<theader>
+																<tr bgcolor="#ADABAC" class="button-on">
+															        <td class="theader" align="center" width="50">PHOTO</td>
+															        <td class="theader" align="center" width="95">REFERENCE NO</td>
+															        <td class="theader" align="right" width="100">PRICE FROM (RM)&nbsp;</td>
+															        <td class="theader">&nbsp;AREA</td>
+							        								<td class="theader" width="160">&nbsp;PROPERTY TYPE</td>
+							        								<td class="theader" align="center" width="100">AUCTION DATE</td>
+															    </tr>
+																</theader>
+																																	<tr bgcolor=#f6f3eb height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-grey.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_public&ac=1946067">DC10034081</a></td>
+																		<td align="right">
+																			120,000.00
+																			&nbsp;
+																		</td>
+																		<td>Jitra,&nbsp;Kedah</td>
+																		<td>Landed/Cluster</td>
+																		<td align="center">
+																			05 Jan 2015
+																		</td>
+																	</tr>
+																	<tr bgcolor=#ffffff height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-grey.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_public&ac=1945931">DC10032091</a></td>
+																		<td align="right">
+																			220,000.00
+																			&nbsp;
+																		</td>
+																		<td>Kuantan,&nbsp;Pahang</td>
+																		<td>Landed/Cluster</td>
+																		<td align="center">
+																			24 Dec 2014
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-grey.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_public&ac=1946006">DC10033397</a></td>
+																		<td align="right">
+																			500,000.00
+																			&nbsp;
+																		</td>
+																		<td>Perai,&nbsp;Penang</td>
+																		<td>Shop / Factory / Retail / Office / Commercial</td>
+																		<td align="center">
+																			22 Dec 2014
+																		</td>
+																	</tr>
+																	<tr bgcolor=#ffffff height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-grey.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_public&ac=1945641">DC10027151</a></td>
+																		<td align="right">
+																			35,000.00
+																			&nbsp;
+																		</td>
+																		<td>Alor Gajah,&nbsp;Melaka</td>
+																		<td>Landed/Cluster</td>
+																		<td align="center">
+																			19 Dec 2014
+																		</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-grey.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_public&ac=1946031">DC10033714</a></td>
+																		<td align="right">
+																			73,000.00
+																			&nbsp;
+																		</td>
+																		<td>MELAKA,&nbsp;Melaka</td>
+																		<td>Landed/Cluster</td>
+																		<td align="center">
+																			19 Dec 2014
+																		</td>
+																	</tr>
+																		<tr><td colspan="6" align="right" class="Content3">
+																			[ 1 - 5 of 1228 ]&nbsp;
+																			<a href="index.php?ch=ap_pl&pg=ap_pl_public">More >></a>
+																		</td></tr>
+															</table>
+															<!-- end: Title Auction -->
+														</div>
+
+														<div id="ct3" class="tabcontent">
+															<!-- start: Secondary Sale -->
+															<table width="100%" cellpadding="2" cellspacing="1" border="0" class="outerbox" align=center>
+																<theader>
+																<tr bgcolor="#ADABAC" class="button-on">
+															        <td class="theader" align="center" width="50">PHOTO</td>
+															        <td class="theader" align="center" width="95">REFERENCE NO</td>
+															        <td class="theader" align="right" width="100">PRICE FROM (RM)&nbsp;</td>
+															        <td class="theader">&nbsp;AREA</td>
+															        <td class="theader" width="220">&nbsp;PROPERTY TYPE</td>
+															    </tr>
+																</theader>
+																																	<tr bgcolor=#f6f3eb height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-red.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_secondary&ac=1946240">ISS10000059</a></td>
+																		<td align="right">
+																			2,720,000.00
+																			&nbsp;
+																		</td>
+																		<td>Ampang,&nbsp;Wilayah Persekutuan</td>
+																		<td>Landed/Cluster</td>
+																	</tr>
+																	<tr bgcolor=#ffffff height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-red.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_secondary&ac=1946238">BSS10000013</a></td>
+																		<td align="right">
+																			9,586,000.00
+																			&nbsp;
+																		</td>
+																		<td>Buan Land,&nbsp;Sarawak</td>
+																		<td>Shop / Factory / Retail / Office / Commercial</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-red.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_secondary&ac=1946233">ISS10000050</a></td>
+																		<td align="right">
+																			750,000.00
+																			&nbsp;
+																		</td>
+																		<td>Hulu Kelang,&nbsp;Selangor</td>
+																		<td>Landed/Cluster</td>
+																	</tr>
+																	<tr bgcolor=#ffffff height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-red.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_secondary&ac=1946226">ISS10000008</a></td>
+																		<td align="right">
+																			2,100,000.00
+																			&nbsp;
+																		</td>
+																		<td>Johor Bahru,&nbsp;Johor</td>
+																		<td>Shop / Factory / Retail / Office / Commercial</td>
+																	</tr>
+																	<tr bgcolor=#f6f3eb height="32" class="Content3">
+																		<td align="center">
+																			<img src="images/icon/house-grey.png">
+																		</td>
+																		<td align="center"><a href="index.php?ch=ap_pl&pg=ap_pl_secondary&ac=1946234">ISS10000054</a></td>
+																		<td align="right">
+																			250,000.00
+																			&nbsp;
+																		</td>
+																		<td>Klang,&nbsp;Selangor</td>
+																		<td>Shop / Factory / Retail / Office / Commercial</td>
+																	</tr>
+																		<tr><td colspan="6" align="right" class="Content3">
+																			[ 1 - 5 of 14 ]&nbsp;
+																			<a href="index.php?ch=ap_pl&pg=ap_pl_secondary">More >></a>
+																		</td></tr>
+															</table>
+															<!-- end: Secondary Sale -->
+														</div>
+													</DIV>
+													<script language="javascript">
+														ddtabmenu.definemenu("contentTab", 0); //initialize Tab Menu #4 with 3rd tab selected
+													</script>
+												</td></tr>
+												<tr><td><img src="images/spacer.gif" width="1" height="8"></td></tr>
+											</table>
+										</td>
+										<td width="9" valign="top" bgcolor="#e8e8e8"><img src="images/side_right7.gif" width="9" height="19"></td>
+									</tr>
+								</table>
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							        <tr><td bgcolor="#e8e8e8"><img src="images/side_left7.gif" width="14" height="9" border="0"></td></tr>
+							    </table>
+							</td></tr>
+							<tr><td>&nbsp;</td></tr>
+
+						</table>
+						<!-- end: leftbar -->
+					</td>
+
+					<td valign="top">
+						<table width="222" border="0" cellspacing="0" cellpadding="0" align="right">
+    <tr><td height="5"></td></tr>
+    <form name="form1" method="post" action="index.php?ch=ap_search">
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="15" bgcolor="#ADABAC"><img src="images/side_left.gif" width="7" height="21"></td>
+                <td bgcolor="#ADABAC" class="button-on">Search Tools</td>
+                <td width="7"><img src="images/side_right.gif" width="7" height="21"></td>
+            </tr>
+        </table>
+    </td></tr>
+     <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+                <td width="220" bgcolor="#f6f3eb">
+                    <input type="hidden" name="ch" value="ap_search">
+                    <table width="200" border="0" align="center" cellpadding="1" cellspacing="2" class="side">
+                        <tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+                        <tr><td>Keyword</td><td width="5">:</td><td><input type="text" name="s_keyword" VALUE="" maxlength="255" class="Content3" size="18" ></td></tr>
+                        <tr><td>Ref. No</td><td width="5">:</td><td><input type="text" name="s_reffno" VALUE="" maxlength="11" class="Content3" size="18" ></td></tr>
+                        <tr><td>Mode</td><td>:</td><td>
+                            <select name="s_mode" class="Content3" style="width:130px">
+                                <option value="mega" >Mega Auction</option>
+                                <option value="title" >Title Auction</option>
+                                <option value="secondary" >Secondary Sale</option>
+                            </select>
+                        </td></tr>
+                        <tr><td>State</td><td>:</td><td>
+                            <select name="s_state" class="Content3">
+                                <option value="">-- Please Select --</option>
+                                <option  value="JOHOR">Johor</option>
+                                <option  value="KEDAH">Kedah</option>
+                                <option  value="KELANTAN">Kelantan</option>
+                                <option  value="MELAKA">Melaka</option>
+                                <option  value="NEGERI SEMBILAN">Negeri Sembilan</option>
+                                <option  value="PAHANG">Pahang</option>
+                                <option  value="PENANG">Penang</option>
+                                <option  value="PERAK">Perak</option>
+                                <option  value="PERLIS">Perlis</option>
+                                <option  value="SABAH">Sabah</option>
+                                <option  value="SARAWAK">Sarawak</option>
+                                <option  value="SELANGOR">Selangor</option>
+                                <option  value="TERENGGANU">Terengganu</option>
+                                <option  value="WILAYAH PERSEKUTUAN">Wilayah Persekutuan</option>
+                                <option  value="all">All</option>
+                            </select>
+                        </td></tr>
+                        <tr><td>Type</td><td>:</td><td>
+                            <select name="s_type" class="Content3" style="width:130px">
+                                <option value="">-- Please Select --</option>
+                                <option  value="Condo / Flat / Apt / Townhouse / Resort">Condo / Flat / Apt</option>
+                                <option  value="Landed/Cluster">Landed / Cluster</option>
+                                <option  value="Shop / Factory / Retail / Office / Commercial">Shop / Commercial</option>
+                                <option  value="Vacant Land">Vacant Land</option>
+                            </select>
+
+                        </td></tr>
+                        <tr><td>Price</td><td>:</td><td>
+                            <select name="s_price" class="Content3" style="width:130px">
+                                <option value="" selected>-- Please Select --</option>
+                                <option value="1" >&#8804; RM100,000</option>
+                                <option value="2" >&#8804; RM200,000</option>
+                                <option value="3" >&#8804; RM500,000</option>
+                                <option value="4" >&#8804; RM1,000,000</option>
+                                <option value="all" >All</option>
+                            </select>
+                        </td></tr>
+                        <tr><td colspan="3" align="right"><input type="image" name="submit" value="submit" src="images/icon/bt_go2.gif" border="0">&nbsp;</td></tr>
+                    </table>
+
+                </td>
+                <td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+            </tr>
+        </table>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><img src="images/side_bttm.gif" width="222" height="5"></td></tr>
+        </table>
+    </td></tr>
+    </form>
+    <tr><td height="8"></td></tr>
+
+    <!-- start: Reach Us -->
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="15" bgcolor="#ADABAC"><img src="images/side_left.gif" width="7" height="21"></td>
+                <td bgcolor="#ADABAC" class="button-on">How to Reach Us</td>
+                <td width="7"><img src="images/side_right.gif" width="7" height="21"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+                <td width="220" bgcolor="#f6f3eb">
+                    <table width="200" border="0" align="center" cellpadding="1" cellspacing="4" class="side">
+                        <tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+                                                    <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td>Hotline: 1300 88 0811</td></tr>
+                            <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td>Email: propertymart@cimb.com</td></tr>
+                            <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td><a href='index.php?ch=1&pg=13&ac=8&bb=attach_1' class='side' target='_blank'>View Location Map & Address</a></td></tr>
+                        <!--
+                        <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td>Hotline: 1300 88 0811</td></tr>
+                        <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td>Email: <a href="mailto:propertymart@cimb.com" class="maroon">propertymart@cimb.com</a></td></tr>
+                        <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td>View Location Map & Address</td></tr>
+                        -->
+                        <tr><td align=center><img src="images/acc-arrow2_red.gif"></td><td><a href="index.php?ch=ap&pg=ap_contactus" class="side">Contact Us</a></td></tr>
+                        <!--/[!program print="<tr><td align=center><img src=\"images/acc-arrow2_red.gif\"></td><td class=\"Content\"><a href=\"$link\" class=\"side\">$title</a></td></tr>" code="ap_eventsreg"]-->
+                    </table>
+                </td>
+                <td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><img src="images/side_bttm.gif" width="222" height="5"></td></tr>
+        </table>
+    </td></tr>
+    <tr><td height="8"></td></tr>
+    <!-- end: Reach Us -->
+
+    <!-- start: Others -->
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="15" bgcolor="#ADABAC"><img src="images/side_left.gif" width="7" height="21"></td>
+                <td bgcolor="#ADABAC" class="button-on">Others</td>
+                <td width="7"><img src="images/side_right.gif" width="7" height="21"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+                <td width="220" bgcolor="#f6f3eb">
+                    <table width="200" border="0" align="center" cellpadding="1" cellspacing="2">
+                           <tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+                                                <tr><td align=center valign=top><img src="images/acc-arrow2_red.gif" vspace="6"></td>
+                            <td><a href="http://www.cimbbank.com.my/index.php?ch=cb_per_hf&pg=cb_per_hf_buy&tpt=cimb_bank" class="side" target="_blank">Home Loan Packages</a></td>
+                        </tr>
+                                                <tr><td align=center valign=top><img src="images/acc-arrow2_red.gif" vspace="6"></td>
+                            <td><a href="http://www.cimbbank.com.my/index.php?ch=gen_tool&pg=gen_tool_calc&tpt=cimb_bank&tpt=cimb_bank" class="side" target="_blank">Loan Calculator</a></td>
+                        </tr>
+                                                <tr><td align=center valign=top><img src="images/acc-arrow2_red.gif" vspace="6"></td>
+                            <td><a href="http://www.kwsp.gov.my/portal/ms/web/kwsp/member/withdrawal-to-purchase-a-house" class="side" target="_blank">EPF Guideline</a></td>
+                        </tr>
+                                                <tr><td align=center valign=top><img src="images/acc-arrow2_red.gif" vspace="6"></td>
+                            <td><a href="index.php?ch=1&pg=5&ac=3&bb=attach_1" class="side" target="_blank">Buyer's Guide & Tips</a></td>
+                        </tr>
+                                            </table>
+                </td>
+                <td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><img src="images/side_bttm.gif" width="222" height="5"></td></tr>
+        </table>
+    </td></tr>
+    <tr><td height="8"></td></tr>
+    <!-- end: Others -->
+
+    <!-- start: Perpetual e-Booklet -->
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="15" bgcolor="#ADABAC"><img src="images/side_left.gif" width="7" height="21"></td>
+                <td bgcolor="#ADABAC" class="button-on">Perpetual e-Booklet</td>
+                <td width="7"><img src="images/side_right.gif" width="7" height="21"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+                <td width="220" bgcolor="#f6f3eb">
+                    <table width="200" border="0" align="center" cellpadding="1" cellspacing="2">
+                        <tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+                                                <tr><td align=center valign=top><img src="images/acc-arrow2_red.gif" vspace="6"></td>
+                            <td><a href="index.php?ch=1&pg=6&ac=4&bb=attach_1" class="side" target="_blank">Central/Northern/Southern Vol.04</a></td>
+                        </tr>
+                                            </table>
+                </td>
+                <td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><img src="images/side_bttm.gif" width="222" height="5"></td></tr>
+        </table>
+    </td></tr>
+    <tr><td height="8"></td></tr>
+    <!-- end: Perpetual e-Booklet -->
+
+
+    <!-- start: Master Listing -->
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="15" bgcolor="#ADABAC"><img src="images/side_left.gif" width="7" height="21"></td>
+                <td bgcolor="#ADABAC" class="button-on">Master Listing</td>
+                <td width="7"><img src="images/side_right.gif" width="7" height="21"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+                <td width="220" bgcolor="#f6f3eb">
+                    <table width="200" border="0" align="center" cellpadding="1" cellspacing="2">
+                        <tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+                                                <tr><td align=center valign=top><img src="images/acc-arrow2_red.gif" vspace="6"></td>
+                            <td><a href="index.php?ch=1&pg=14&ac=14&bb=attach_1" class="side" target="_blank">Printable Property Listing</a></td>
+                        </tr>
+                                            </table>
+                </td>
+                <td width="1" bgcolor="#d7d7d7"><img src="images/spacer.gif" width="1" height="1"></td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="222" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><img src="images/side_bttm.gif" width="222" height="5"></td></tr>
+        </table>
+    </td></tr>
+    <!-- end: Master Listing -->
+
+</table>					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="12"><img src="images/spacer.gif" width="1" height="1"></td>
+	</tr>
+</table>
+
+<!--footer: start-->
+<table width="980" border="0" cellpadding="0" cellspacing="0" align=center bgcolor="#FFFFFF">
+     <tr>
+        <td width="12" rowspan="5"></td>
+        <td>&nbsp;</td>
+        <td width="12" rowspan="5"></td>
+    </tr>
+    <tr><td valign="top" align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" class="Content3">
+            <tr><td>By accessing this Website you have agreed to be bound by all the <a href="index.php?ch=ap&pg=ap_tnc" class="maroon">Terms and Conditions</a>.</td></tr>
+            <tr><td height="5"><img src="images/spacer.gif" width="1" height="1"></td></tr>
+        </table>
+    </td></tr>
+    <tr><td valign="top">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><a href="http://www.bnm.gov.my"><img src="images/footer/bn_icon.gif" border="0" /></a></td>
+                <td><a href="http://www.fmb.org.my"><img src="images/footer/fmb_icon.gif" border="0" /></a></td>
+                <td><a href="http://www.smeinfo.com.my"><img src="images/footer/smeinfo_icon.png" border="0" /></a></td>
+                <td><a href="http://www.bankinginfo.com.my/"><img src="images/footer/bankinginfo_icon.gif" border="0" /></a></td>
+                <td><a href="http://www.bankcard.com.my/"><img src="images/footer/bankcard_icon.gif" border="0" /></a></td>
+                <td><a href="http://www.malaysia.gov.my/BM/Pages/default.aspx"><img src="images/footer/mybayar_icon.gif" border="0" /></a></td>
+                <td><a href="http://www.pidm.gov.my/"><img src="images/footer/pidm_icon.gif" border="0" /></a></td>
+                <td><a href="http://www.mifc.com/"><img src="images/footer/mifc_icon.gif" border="0" /></a>&nbsp;</td>
+                <td><a href="http://www.bursamalaysia.com/website/bm/listed_companies/cmdf_bursa_research_scheme/eResearch.jsp"><img src="images/footer/icon9.jpg" border="0" />&nbsp;</a></td>
+                <td><a href="http://www.meps.com.my/faq/atm"><img src="images/footer/icon_meps.png" border="0" /></a></td>
+                <td width="7">&nbsp;</td>
+                <td><a href="http://www.akpk.org.my/"><img src="images/footer/power_icon_34x24.jpg" border="0" /></a></td>
+                <td width="7"> </td>
+            </tr>
+        </table>
+    </td></tr>
+    <tr><td>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr><td height="34" align="center" valign="middle" bgcolor="#dc241f">
+                <table width="930" border="0" cellpadding="0" cellspacing="0">
+                    <tr><td align="left" class="footer">
+                             <a href="http://www.cimb.com" target="_blank">CIMB Group</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                             <a href="http://www.cimb-principal.com.my" target="_blank">Financial Information</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <a href="http://www.cimb.com/index.php?ch=g2_mc&pg=g2_mc_news&tpt=cimb_group" target="_blank">Group News</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <a href="index.php?ch=ap&pg=ap_contactus">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <a href="http://www.cimb.com/index.php?ch=g2_cr&tpt=cimb_group" target="_blank">Careers</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <!-- <a href="index.php?ch=ap&pg=ap_contactus">Sitemap</a>&nbsp;&nbsp;|&nbsp;&nbsp; -->
+                            <a href="http://www.cimbbank.com.my/index.php?ch=gen_tool&pg=gen_tool_article&ac=22&tpt=cimb_bank&tpt=cimb_bank" target="_blank">Privacy</a>
+                        </td>
+                        <td align="right" class="footer">All rights reserved. Copyright &copy; 2014 CIMB Group</td>
+                    </tr>
+                </table>
+            </td></tr>
+        </table>
+    </td></tr>
+    <tr><td height="5"></td></tr>
+</table>
+<!--footer: end-->
+
+</body>
+</html>
