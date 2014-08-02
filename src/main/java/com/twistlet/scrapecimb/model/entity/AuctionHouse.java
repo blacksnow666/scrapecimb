@@ -61,6 +61,9 @@ public class AuctionHouse {
 	@Indexed
 	private String housingArea;
 
+	@Indexed
+	private Integer previousAuctionCount;
+
 	public String getUrl() {
 		return url;
 	}
@@ -195,6 +198,14 @@ public class AuctionHouse {
 
 	public void setHousingArea(final String housingArea) {
 		this.housingArea = housingArea;
+	}
+
+	public Integer getPreviousAuctionCount() {
+		return previousAuctionCount;
+	}
+
+	public void setPreviousAuctionCount(final Integer previousAuctionCount) {
+		this.previousAuctionCount = previousAuctionCount;
 	}
 
 }

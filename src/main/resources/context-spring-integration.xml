@@ -132,7 +132,7 @@
 		datatype="com.twistlet.scrapecimb.model.entity.AuctionHouse" />
 
 	<int:service-activator input-channel="channelAuctionObject"
-		output-channel="nullChannel" ref="auctionHouseRepository" method="save" />
+		output-channel="nullChannel" ref="databaseService" method="saveAuctionHouse" />
 
 	<bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
 		<property name="retryPolicy">

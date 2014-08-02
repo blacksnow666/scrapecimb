@@ -8,4 +8,6 @@ public interface DatabaseService {
 
 	List<AuctionHouse> findHighProfitLowCost(double profit, double value,
 			boolean includeBumi);
+
+	void saveAuctionHouse(AuctionHouse auctionHouse);
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
 
-@Service
+@Service("databaseService")
 public class DatabaseServiceImpl implements DatabaseService {
 
 	private final AuctionHouseRepository auctionHouseRepository;
@@ -38,6 +38,12 @@ public class DatabaseServiceImpl implements DatabaseService {
 							profit, value, list, new PageRequest(0, 500,
 									Direction.DESC, "difference"));
 		}
+	}
+
+	@Override
+	public void saveAuctionHouse(final AuctionHouse auctionHouse) {
+		auctionHouseRepository.save(auctionHouse);
+
 	}
 
 }
