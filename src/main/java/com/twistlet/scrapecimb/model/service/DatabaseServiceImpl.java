@@ -1,5 +1,6 @@
 package com.twistlet.scrapecimb.model.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.twistlet.scrapecimb.model.entity.AuctionDate;
+import com.twistlet.scrapecimb.model.entity.AuctionDatePrice;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 import com.twistlet.scrapecimb.model.repository.AuctionDateRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
@@ -52,6 +54,12 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 	@Override
 	public void saveAuctionHouse(final AuctionHouse auctionHouse) {
+		populateDatePrice(auctionHouse);
+		auctionHouseRepository.save(auctionHouse);
+
+	}
+
+	private void populateDatePrice(final AuctionHouse auctionHouse) {
 		String ref = auctionHouse.getRef();
 		Date dateOnly = DateUtils.truncate(auctionHouse.getAuctionDate(),
 				Calendar.DATE);
@@ -59,16 +67,29 @@ public class DatabaseServiceImpl implements DatabaseService {
 		if (item == null) {
 			item = new AuctionDate();
 			item.setId(ref);
-			item.setDates(new LinkedHashSet<Date>());
+			item.setAuctionDatePrices(new ArrayList<AuctionDatePrice>());
 		}
-		Set<Date> dates = item.getDates();
+		Set<Date> dates = toDateSet(item.getAuctionDatePrices());
 		if (dates.add(dateOnly)) {
+			AuctionDatePrice auctionDatePrice = new AuctionDatePrice();
+			auctionDatePrice.setDate(dateOnly);
+			auctionDatePrice.setPrice(auctionHouse.getPriceAuction());
+			List<AuctionDatePrice> list = new ArrayList<>(
+					item.getAuctionDatePrices());
+			list.add(auctionDatePrice);
+			item.setAuctionDatePrices(list);
 			auctionDateRepository.save(item);
 		}
 		int count = dates.size();
 		auctionHouse.setPreviousAuctionCount(new Integer(count - 1));
-		auctionHouseRepository.save(auctionHouse);
+	}
 
+	private Set<Date> toDateSet(final List<AuctionDatePrice> auctionDatePrices) {
+		Set<Date> set = new LinkedHashSet<Date>();
+		for (AuctionDatePrice auctionDatePrice : auctionDatePrices) {
+			set.add(auctionDatePrice.getDate());
+		}
+		return set;
 	}
 
 }

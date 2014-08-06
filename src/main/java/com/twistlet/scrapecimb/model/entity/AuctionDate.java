@@ -1,10 +1,8 @@
 package com.twistlet.scrapecimb.model.entity;
 
-import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -13,8 +11,7 @@ public class AuctionDate {
 	@Id
 	private String id;
 
-	@Indexed
-	private Set<Date> dates;
+	private List<AuctionDatePrice> auctionDatePrices;
 
 	public String getId() {
 		return id;
@@ -24,12 +21,12 @@ public class AuctionDate {
 		this.id = id;
 	}
 
-	public Set<Date> getDates() {
-		return dates;
+	public List<AuctionDatePrice> getAuctionDatePrices() {
+		return auctionDatePrices;
 	}
 
-	public void setDates(final Set<Date> dates) {
-		this.dates = dates;
+	public void setAuctionDatePrices(final List<AuctionDatePrice> auctionDatePrices) {
+		this.auctionDatePrices = auctionDatePrices;
 	}
 
 }

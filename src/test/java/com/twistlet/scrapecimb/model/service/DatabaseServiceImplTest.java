@@ -1,15 +1,18 @@
 package com.twistlet.scrapecimb.model.service;
 
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import org.apache.commons.lang3.time.DateUtils;
@@ -22,6 +25,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Pageable;
 
 import com.twistlet.scrapecimb.model.entity.AuctionDate;
+import com.twistlet.scrapecimb.model.entity.AuctionDatePrice;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 import com.twistlet.scrapecimb.model.repository.AuctionDateRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
@@ -75,7 +79,9 @@ public class DatabaseServiceImplTest {
 		ArgumentCaptor<AuctionHouse> houseCaptor = ArgumentCaptor
 				.forClass(AuctionHouse.class);
 		AuctionHouse auctionHouse = new AuctionHouse();
+		auctionHouse.setRef("ID#1");
 		auctionHouse.setAuctionDate(new Date());
+		auctionHouse.setPriceAuction(10_000.00);
 		sut.saveAuctionHouse(auctionHouse);
 		verify(auctionHouseRepository).save(houseCaptor.capture());
 		assertEquals(new Integer(0), houseCaptor.getValue()
@@ -96,19 +102,26 @@ public class DatabaseServiceImplTest {
 				.forClass(AuctionDate.class);
 
 		AuctionDate item = new AuctionDate();
-		item.setDates(new LinkedHashSet<Date>(Arrays.asList(existingDate1,
-				existingDate2)));
+		AuctionDatePrice auctionDatePrice1 = new AuctionDatePrice();
+		auctionDatePrice1.setDate(existingDate1);
+		auctionDatePrice1.setPrice(10.00);
+		AuctionDatePrice auctionDatePrice2 = new AuctionDatePrice();
+		auctionDatePrice2.setDate(existingDate2);
+		auctionDatePrice2.setPrice(10.00);
+		item.setAuctionDatePrices(Arrays.asList(auctionDatePrice1,
+				auctionDatePrice2));
 		when(auctionDateRepository.findOne("ID#1")).thenReturn(item);
 
 		AuctionHouse auctionHouse = new AuctionHouse();
 		auctionHouse.setAuctionDate(auctionDate);
 		auctionHouse.setRef("ID#1");
+		auctionHouse.setPriceAuction(10_000.00);
 		sut.saveAuctionHouse(auctionHouse);
 		verify(auctionHouseRepository).save(houseCaptor.capture());
 		verify(auctionDateRepository).save(dateCaptor.capture());
 		assertEquals(new Integer(2), houseCaptor.getValue()
 				.getPreviousAuctionCount());
-		assertEquals(3, dateCaptor.getValue().getDates().size());
+		assertEquals(3, dateCaptor.getValue().getAuctionDatePrices().size());
 
 	}
 
@@ -122,9 +135,16 @@ public class DatabaseServiceImplTest {
 		ArgumentCaptor<AuctionHouse> houseCaptor = ArgumentCaptor
 				.forClass(AuctionHouse.class);
 
+		AuctionDatePrice auctionDatePrice = new AuctionDatePrice();
+		auctionDatePrice.setDate(existingDate);
+		auctionDatePrice.setPrice(10.00);
+		AuctionDatePrice auctionDatePrice1 = new AuctionDatePrice();
+		auctionDatePrice1.setDate(existingDate1);
+		auctionDatePrice1.setPrice(10.00);
+
 		AuctionDate item = new AuctionDate();
-		item.setDates(new LinkedHashSet<Date>(Arrays.asList(existingDate,
-				existingDate1)));
+		item.setAuctionDatePrices(Arrays.asList(auctionDatePrice,
+				auctionDatePrice1));
 		when(auctionDateRepository.findOne("ID#1")).thenReturn(item);
 
 		AuctionHouse auctionHouse = new AuctionHouse();
