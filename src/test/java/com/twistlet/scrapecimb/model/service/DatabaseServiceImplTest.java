@@ -24,9 +24,11 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Pageable;
 
+import com.twistlet.scrapecimb.model.entity.AuctionArea;
 import com.twistlet.scrapecimb.model.entity.AuctionDate;
 import com.twistlet.scrapecimb.model.entity.AuctionDatePrice;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
+import com.twistlet.scrapecimb.model.repository.AuctionAreaRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionDateRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
 
@@ -38,6 +40,8 @@ public class DatabaseServiceImplTest {
 	private AuctionHouseRepository auctionHouseRepository;
 	@Mock
 	private AuctionDateRepository auctionDateRepository;
+	@Mock
+	private AuctionAreaRepository auctionAreaRepository;
 
 	List<AuctionHouse> listAll = new ArrayList<AuctionHouse>();
 	List<AuctionHouse> listNonBumiOnly = new ArrayList<AuctionHouse>();
@@ -46,7 +50,7 @@ public class DatabaseServiceImplTest {
 	public void init() {
 		MockitoAnnotations.initMocks(this);
 		sut = new DatabaseServiceImpl(auctionHouseRepository,
-				auctionDateRepository);
+				auctionDateRepository, auctionAreaRepository);
 		when(
 				auctionHouseRepository
 						.findByDifferenceGreaterThanAndPriceAuctionLessThan(
@@ -156,6 +160,20 @@ public class DatabaseServiceImplTest {
 		verifyNoMoreInteractions(auctionDateRepository);
 		assertEquals(new Integer(1), houseCaptor.getValue()
 				.getPreviousAuctionCount());
+
+	}
+
+	@Test
+	public void testListAuctionArea() {
+		List<AuctionArea> list = new ArrayList<AuctionArea>();
+		when(auctionAreaRepository.findAll()).thenReturn(list);
+		List<AuctionArea> fromDb = sut.listAuctionArea();
+		assertSame(list, fromDb);
+	}
+
+	@Test
+	public void testSaveAuctionArea() {
+		sut.saveAuctionArea(null);
 
 	}
 }

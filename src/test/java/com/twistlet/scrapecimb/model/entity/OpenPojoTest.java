@@ -20,6 +20,7 @@ public class OpenPojoTest {
 	@Before
 	public void init() {
 		pojoList = new ArrayList<PojoClass>();
+		pojoList.add(PojoClassFactory.getPojoClass(AuctionArea.class));
 		pojoList.add(PojoClassFactory.getPojoClass(AuctionDate.class));
 		pojoList.add(PojoClassFactory.getPojoClass(AuctionDatePrice.class));
 		pojoList.add(PojoClassFactory.getPojoClass(AuctionHouse.class));

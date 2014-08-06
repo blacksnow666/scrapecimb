@@ -14,9 +14,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import com.twistlet.scrapecimb.model.entity.AuctionArea;
 import com.twistlet.scrapecimb.model.entity.AuctionDate;
 import com.twistlet.scrapecimb.model.entity.AuctionDatePrice;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
+import com.twistlet.scrapecimb.model.repository.AuctionAreaRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionDateRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
 
@@ -25,13 +27,16 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 	private final AuctionHouseRepository auctionHouseRepository;
 	private final AuctionDateRepository auctionDateRepository;
+	private final AuctionAreaRepository auctionAreaRepository;
 
 	@Autowired
 	public DatabaseServiceImpl(
 			final AuctionHouseRepository auctionHouseRepository,
-			final AuctionDateRepository auctionDateRepository) {
+			final AuctionDateRepository auctionDateRepository,
+			final AuctionAreaRepository auctionAreaRepository) {
 		this.auctionHouseRepository = auctionHouseRepository;
 		this.auctionDateRepository = auctionDateRepository;
+		this.auctionAreaRepository = auctionAreaRepository;
 	}
 
 	@Override
@@ -92,4 +97,23 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return set;
 	}
 
+	@Override
+	public List<AuctionArea> listAuctionArea() {
+		return auctionAreaRepository.findAll();
+	}
+
+	@Override
+	public void saveAuctionArea(final AuctionArea item) {
+		auctionAreaRepository.save(item);
+	}
+
+	@Override
+	public void removeAuctionArea(final String id) {
+		auctionAreaRepository.delete(id);
+	}
+
+	@Override
+	public AuctionArea getAuctionArea(final String id) {
+		return auctionAreaRepository.findOne(id);
+	}
 }
