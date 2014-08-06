@@ -126,12 +126,20 @@
 
 	<int:service-activator ref="auctionContentService"
 		method="toAuctionHouse" input-channel="channelAuctionMap"
-		output-channel="channelAuctionObject" />
+		output-channel="channelAuctionObjectUnfiltered" />
 
-	<int:channel id="channelAuctionObject"
+	<int:channel id="channelAuctionObjectUnfiltered"
 		datatype="com.twistlet.scrapecimb.model.entity.AuctionHouse" />
 
-	<int:service-activator input-channel="channelAuctionObject"
+	<int:filter input-channel="channelAuctionObjectUnfiltered"
+		output-channel="channelAuctionObjectFiltered" discard-channel="nullChannel"
+		expression="!payload.propertyDescription.contains('low cost apartment') AND !payload.propertyDescription.contains('low cost flat')">
+	</int:filter>
+
+	<int:channel id="channelAuctionObjectFiltered"
+		datatype="com.twistlet.scrapecimb.model.entity.AuctionHouse" />
+
+	<int:service-activator input-channel="channelAuctionObjectFiltered"
 		output-channel="nullChannel" ref="databaseService" method="saveAuctionHouse" />
 
 	<bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
