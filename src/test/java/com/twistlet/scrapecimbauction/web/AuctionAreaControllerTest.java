@@ -1,39 +1,48 @@
 package com.twistlet.scrapecimbauction.web;
 
-import static org.junit.Assert.*;
-
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import com.twistlet.scrapecimb.model.service.DatabaseService;
 
 public class AuctionAreaControllerTest {
 
-	@Test
-	public void testAuctionAreaController() {
-		fail("Not yet implemented");
+	private AuctionAreaController sut;
+
+	@Mock
+	private DatabaseService databaseService;
+
+	@Before
+	public void init() {
+		MockitoAnnotations.initMocks(this);
+		sut = new AuctionAreaController(databaseService);
 	}
 
 	@Test
 	public void testList() {
-		fail("Not yet implemented");
+		sut.list();
 	}
 
 	@Test
 	public void testSave() {
-		fail("Not yet implemented");
+		sut.save(null);
 	}
 
 	@Test
 	public void testRemove() {
-		fail("Not yet implemented");
+		sut.remove(null);
 	}
 
 	@Test
 	public void testCreateAuctionArea() {
-		fail("Not yet implemented");
+		sut.create();
 	}
 
 	@Test
-	public void testCreateString() {
-		fail("Not yet implemented");
+	public void testEditString() {
+		sut.edit("10");
 	}
 
 }

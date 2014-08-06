@@ -42,14 +42,14 @@ public class AuctionAreaController {
 	}
 
 	@RequestMapping(value = "/admin/area/create", method = RequestMethod.POST)
-	public ModelAndView create(final AuctionArea item) {
+	public ModelAndView create() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("item", new AuctionArea());
 		return mav;
 	}
 
 	@RequestMapping(value = "/admin/area/edit", method = RequestMethod.POST)
-	public ModelAndView create(@RequestParam("id") final String id) {
+	public ModelAndView edit(@RequestParam("id") final String id) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("item", databaseService.getAuctionArea(id));
 		return mav;
