@@ -42,6 +42,12 @@
 			<version>${powermock.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.googlecode.openpojo</groupId>
+			<artifactId>openpojo</artifactId>
+			<version>0.5.1</version>
+			<scope>test</scope>
+		</dependency>
 
 
 		<!-- Spring -->
@@ -95,7 +101,7 @@
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>1.5.2.RELEASE</version>
 		</dependency>
-		
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
