@@ -34,8 +34,9 @@
 	</bean>
 
 	<util:list id="listEnrichAuctionHouseService"
-		list-class="com.twistlet.scrapecimb.model.service.EnrichAuctionHouseService">
+		value-type="com.twistlet.scrapecimb.model.service.EnrichAuctionHouseService">
 		<ref bean="enrichAuctionHouseAuctionCountService" />
 		<ref bean="enrichAuctionHouseHousingAreaService" />
 	</util:list>
+
 </beans>

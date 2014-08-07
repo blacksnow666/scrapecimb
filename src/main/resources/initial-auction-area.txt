@@ -1,0 +1,1 @@
+{"state":"Selangor", "area":"Shah Alam", "name": "Taman Sri Muda", "expression" : ".*[T|t]aman [S|s]e?ri [M|m]uda.*","url":"http://www.mudah.my/Selangor/Properties-2000/taman+muda-for-sale?sp=1&sa=333&so=1&q=taman%20muda&th=1"}
