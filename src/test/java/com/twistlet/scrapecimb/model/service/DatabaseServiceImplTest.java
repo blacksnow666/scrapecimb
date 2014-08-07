@@ -1,9 +1,8 @@
 package com.twistlet.scrapecimb.model.service;
 
-import static org.junit.Assert.assertSame;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +65,6 @@ public class DatabaseServiceImplTest {
 		assertSame(listNonBumiOnly, listFromDb);
 	}
 
-
 	@Test
 	public void testListAuctionArea() {
 		List<AuctionArea> list = new ArrayList<AuctionArea>();
@@ -78,6 +76,24 @@ public class DatabaseServiceImplTest {
 	@Test
 	public void testSaveAuctionArea() {
 		sut.saveAuctionArea(null);
+
+	}
+
+	@Test
+	public void testSaveAuctionHouse() {
+		sut.saveAuctionHouse(null);
+
+	}
+
+	@Test
+	public void testRemoveAuctionArea() {
+		sut.removeAuctionArea(null);
+
+	}
+
+	@Test
+	public void testGetAuctionArea() {
+		sut.getAuctionArea(null);
 
 	}
 }
