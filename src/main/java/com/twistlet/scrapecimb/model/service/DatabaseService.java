@@ -14,9 +14,13 @@ public interface DatabaseService {
 
 	List<AuctionArea> listAuctionArea();
 
+	List<AuctionHouse> listAuctionHouse();
+
 	void saveAuctionArea(AuctionArea item);
 
 	void removeAuctionArea(String id);
 
 	AuctionArea getAuctionArea(String id);
+
+	void removeAllAuctionPhrase();
 }

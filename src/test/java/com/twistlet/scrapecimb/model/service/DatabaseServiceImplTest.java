@@ -18,6 +18,7 @@ import com.twistlet.scrapecimb.model.entity.AuctionArea;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 import com.twistlet.scrapecimb.model.repository.AuctionAreaRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
+import com.twistlet.scrapecimb.model.repository.AuctionPhraseRepository;
 
 public class DatabaseServiceImplTest {
 
@@ -27,6 +28,9 @@ public class DatabaseServiceImplTest {
 	private AuctionHouseRepository auctionHouseRepository;
 	@Mock
 	private AuctionAreaRepository auctionAreaRepository;
+
+	@Mock
+	private AuctionPhraseRepository auctionPhraseRepository;
 	@Mock
 	private EnrichAuctionHouseService enrichAuctionHouseService;;
 
@@ -37,7 +41,8 @@ public class DatabaseServiceImplTest {
 	public void init() {
 		MockitoAnnotations.initMocks(this);
 		sut = new DatabaseServiceImpl(auctionHouseRepository,
-				auctionAreaRepository, Arrays.asList(enrichAuctionHouseService));
+				auctionAreaRepository, auctionPhraseRepository,
+				Arrays.asList(enrichAuctionHouseService));
 		when(
 				auctionHouseRepository
 						.findByDifferenceGreaterThanAndPriceAuctionLessThan(

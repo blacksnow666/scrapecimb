@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
@@ -15,22 +16,26 @@ import com.twistlet.scrapecimb.model.entity.AuctionArea;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
 import com.twistlet.scrapecimb.model.repository.AuctionAreaRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
+import com.twistlet.scrapecimb.model.repository.AuctionPhraseRepository;
 
 @Service("databaseService")
 public class DatabaseServiceImpl implements DatabaseService {
 
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	private final AuctionHouseRepository auctionHouseRepository;
 	private final AuctionAreaRepository auctionAreaRepository;
+	private final AuctionPhraseRepository auctionPhraseRepository;
 	private final List<EnrichAuctionHouseService> listEnrichAuctionHouseService;
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	public DatabaseServiceImpl(
 			final AuctionHouseRepository auctionHouseRepository,
 			final AuctionAreaRepository auctionAreaRepository,
+			final AuctionPhraseRepository auctionPhraseRepository,
 			@Value("#{listEnrichAuctionHouseService}") final List<EnrichAuctionHouseService> listEnrichAuctionHouseService) {
 		this.auctionHouseRepository = auctionHouseRepository;
 		this.auctionAreaRepository = auctionAreaRepository;
+		this.auctionPhraseRepository = auctionPhraseRepository;
 		this.listEnrichAuctionHouseService = listEnrichAuctionHouseService;
 	}
 
@@ -80,4 +85,17 @@ public class DatabaseServiceImpl implements DatabaseService {
 	public AuctionArea getAuctionArea(final String id) {
 		return auctionAreaRepository.findOne(id);
 	}
+
+	@Override
+	public void removeAllAuctionPhrase() {
+		auctionPhraseRepository.deleteAll();
+	}
+
+	@Override
+	public List<AuctionHouse> listAuctionHouse() {
+		PageRequest pageRequest = new PageRequest(0, 10_000);
+		Page<AuctionHouse> page = auctionHouseRepository.findAll(pageRequest);
+		return page.getContent();
+	}
+
 }
