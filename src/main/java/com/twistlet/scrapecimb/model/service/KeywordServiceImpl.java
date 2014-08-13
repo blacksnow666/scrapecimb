@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
+import org.springframework.stereotype.Service;
 
+@Service
 public class KeywordServiceImpl implements KeywordService {
 
 	private final int min;

@@ -10,12 +10,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class AuctionPhrase {
 
 	@Id
+	private String id;
+	@Indexed
 	private String name;
 	@Indexed
 	private int count;
 	private String state;
 	private String area;
 	private Set<String> url;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(final String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

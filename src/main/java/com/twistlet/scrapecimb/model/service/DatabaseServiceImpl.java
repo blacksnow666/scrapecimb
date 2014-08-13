@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.twistlet.scrapecimb.model.entity.AuctionArea;
 import com.twistlet.scrapecimb.model.entity.AuctionHouse;
+import com.twistlet.scrapecimb.model.entity.AuctionPhrase;
 import com.twistlet.scrapecimb.model.repository.AuctionAreaRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionHouseRepository;
 import com.twistlet.scrapecimb.model.repository.AuctionPhraseRepository;
@@ -96,6 +97,25 @@ public class DatabaseServiceImpl implements DatabaseService {
 		PageRequest pageRequest = new PageRequest(0, 10_000);
 		Page<AuctionHouse> page = auctionHouseRepository.findAll(pageRequest);
 		return page.getContent();
+	}
+
+	@Override
+	public List<AuctionPhrase> findAuctionPhrase(final String keyword,
+			final String state, final String area) {
+		PageRequest pageRequest = new PageRequest(0, 10_000);
+		Page<AuctionPhrase> page = auctionPhraseRepository
+				.findByNameAndStateAndArea(keyword, state, area, pageRequest);
+		return page.getContent();
+	}
+
+	@Override
+	public void saveAuctionPhrase(final AuctionPhrase auctionPhrase) {
+		auctionPhraseRepository.save(auctionPhrase);
+	}
+
+	@Override
+	public void addToAuctionPhrase(final String id, final String url) {
+		auctionPhraseRepository.addUrl(id, url);
 	}
 
 }
