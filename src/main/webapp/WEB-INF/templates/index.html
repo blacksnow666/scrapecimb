@@ -15,9 +15,11 @@
 </head>
 
 <body>
-	<h4>
-		<a href="#" th:href="@{/}">Scrape: Auction</a>
-	</h4>
+	<div class="container">
+		<h4>
+			<a href="#" th:href="@{/}">Scrape: Auction</a>
+		</h4>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -32,12 +34,13 @@
 				<form class="form-inline" action="#" th:action="@{/index}">
 					<div class="form-group">
 						<label for="profit">Minimum Profit</label> <input type="text"
-							class="form-control" id="profit" name="profit"
+							style="width: 120px" class="form-control" id="profit"
+							name="profit"
 							th:value="${#numbers.formatDecimal(profit,3,'NONE', 2, 'POINT')}" />
 					</div>
 					<div class="form-group">
 						<label for="value">Maximum Price</label> <input type="text"
-							class="form-control" id="value" name="value"
+							style="width: 120px" class="form-control" id="value" name="value"
 							th:value="${#numbers.formatDecimal(value,3,'NONE', 2, 'POINT')}" />
 					</div>
 					<div class="checkbox">
