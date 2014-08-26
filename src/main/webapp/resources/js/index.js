@@ -16,7 +16,7 @@ $(function() {
 			var count = data.length;
 			var n;
 			var template = $(".row-template", dialog);
-			for (n = 0; n < count - 1; n++) {
+			for (n = 0; n < count; n++) {
 				var row = template.clone();
 				row.removeClass("row-template");
 				$(".col-date", row).text(data[n].date);
