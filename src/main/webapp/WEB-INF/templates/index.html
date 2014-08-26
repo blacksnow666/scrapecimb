@@ -66,10 +66,13 @@
 					</thead>
 					<tbody>
 						<tr th:each="item: ${list}">
-							<td><a class="open" href="#" th:href="${item.url}"
-								th:title="${item.propertyDescription}">Link</a></td>
+							<td><a class="open" href="#" th:href="${item.url}">Link</a></td>
 							<td th:text="${item.state}">State</td>
-							<td th:text="${item.area}">Area</td>
+							<td><span th:text="${item.area}">[area]</span><span
+								class="hidden"><span class="address"
+									th:text="${item.address}">[address]</span><span
+									class="property-description"
+									th:text="${item.propertyDescription}">[property-description]</span></span></td>
 							<td
 								th:text="${#numbers.formatDecimal(item.priceAuction,3,'COMMA', 2, 'POINT')}">Difference</td>
 							<td
