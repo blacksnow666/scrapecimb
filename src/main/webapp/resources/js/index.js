@@ -8,4 +8,8 @@ $(function() {
 			"target" : "_blank"
 		});
 	});
+	$("table").on("click", "a.link-auction-count", function() {
+
+	});
+
 });

@@ -77,12 +77,23 @@
 								th:text="${#numbers.formatDecimal(item.difference,3,'COMMA', 2, 'POINT')}">Difference</td>
 							<td
 								th:text="${#numbers.formatDecimal(item.percentage,3,2,'POINT')}">Percentage</td>
-							<td th:text="${item.previousAuctionCount}">PreviousAuctionCount</td>
+							<td><span th:if="${item.previousAuctionCount == 0}"
+								th:text="${item.previousAuctionCount}"></span><span
+								th:if="${item.previousAuctionCount != 0}"> <a
+									class="link-auction-count" href="#"><span class="hidden"
+										th:text="${item.ref}"></span><span
+										th:text="${item.previousAuctionCount}"></span></a></span></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
+	</div>
+	<div class="hidden">
+		<form id="form-auction-history" th:action="@{/}">
+			<input class="value" type="hidden" id="form-auction-history-id"
+				name="id" value="" />
+		</form>
 	</div>
 	<script type="text/javascript" th:src="@{#{resource.jquery.js}}"
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
