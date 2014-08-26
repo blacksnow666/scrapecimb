@@ -5,12 +5,10 @@
 <head>
 <meta charset="utf-8" />
 <title>Scrape: Auction</title>
-<link th:href="@{#{resource.datatables.css}}"
-	href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css"
-	rel="stylesheet" />
-<link th:href="@{#{resource.bootstrap.css}}"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-	rel="stylesheet" />
+<link th:href="@{#{resource.datatables.css}}" rel="stylesheet"></link>
+<link th:href="@{#{resource.bootstrap.css}}" rel="stylesheet"></link>
+<link th:href="@{#{resource.jquery.ui.css}}" rel="stylesheet"></link>
+<link th:href="@{#{resource.jquery.ui.theme.css}}" rel="stylesheet"></link>
 
 </head>
 
@@ -83,8 +81,8 @@
 							<td><span th:if="${item.previousAuctionCount == 0}"
 								th:text="${item.previousAuctionCount}"></span><span
 								th:if="${item.previousAuctionCount != 0}"> <a
-									class="link-auction-count" href="#"><span class="hidden"
-										th:text="${item.ref}"></span><span
+									class="link-auction-count" href="#"><span
+										class="hidden link-id" th:text="${item.ref}"></span><span
 										th:text="${item.previousAuctionCount}"></span></a></span></td>
 						</tr>
 					</tbody>
@@ -93,17 +91,23 @@
 		</div>
 	</div>
 	<div class="hidden">
-		<form id="form-auction-history" th:action="@{/}">
+		<form id="form-auction-history" th:action="@{/list/auction-date}">
 			<input class="value" type="hidden" id="form-auction-history-id"
 				name="id" value="" />
 		</form>
+		<div id="dialog-info" title="Information">
+			<div class="container-fluid"></div>
+			<div class="row row-template">
+				<div class="col-xs-6 col-date"></div>
+				<div class="col-xs-6 col-price"></div>
+			</div>
+		</div>
 	</div>
-	<script type="text/javascript" th:src="@{#{resource.jquery.js}}"
-		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" th:src="@{#{resource.bootstrap.js}}"
-		src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" th:src="@{#{resource.datatables.js}}"
-		src="//cdn.datatables.net/1.10.1/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" th:src="@{#{resource.jquery.js}}"></script>
+	<script type="text/javascript" th:src="@{#{resource.bootstrap.js}}"></script>
+	<script type="text/javascript" th:src="@{#{resource.datatables.js}}"></script>
+	<script type="text/javascript" th:src="@{#{resource.jquery.ui.js}}"></script>
+	<script type="text/javascript" th:src="@{#{resource.jquery.form.js}}"></script>
 	<script type="text/javascript" th:src="@{/resources/js/index.js}"></script>
 </body>
 </html>

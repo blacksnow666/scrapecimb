@@ -15,6 +15,7 @@
 		<slf4j.version>1.7.7</slf4j.version>
 		<jackson.version>2.4.1</jackson.version>
 		<powermock.version>1.5.5</powermock.version>
+		<asm.version>5.0.3</asm.version>
 	</properties>
 	<dependencies>
 		<!-- Testing -->
@@ -198,7 +199,25 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>datatables</artifactId>
-			<version>1.10.1</version>
+			<version>1.10.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-form</artifactId>
+			<version>3.28.0-2013.02.06-3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui</artifactId>
+			<version>1.11.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui-themes</artifactId>
+			<version>1.11.0</version>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
@@ -234,27 +253,27 @@
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm</artifactId>
-							<version>5.0.3</version>
+							<version>${asm.version}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-tree</artifactId>
-							<version>5.0.3</version>
+							<version>${asm.version}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-util</artifactId>
-							<version>5.0.3</version>
+							<version>${asm.version}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-commons</artifactId>
-							<version>5.0.3</version>
+							<version>${asm.version}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-analysis</artifactId>
-							<version>5.0.3</version>
+							<version>${asm.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
