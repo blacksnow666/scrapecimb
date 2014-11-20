@@ -13,6 +13,8 @@ public interface DatabaseService {
 
 	void saveAuctionHouse(AuctionHouse auctionHouse);
 
+	long count();
+
 	Iterable<AuctionArea> listAuctionArea();
 
 	List<AuctionHouse> listAuctionHouse();

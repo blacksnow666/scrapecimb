@@ -33,13 +33,13 @@ public class IndexController {
 			@RequestParam(value = "value", defaultValue = "100000") final double value,
 			@RequestParam(value = "nonBumiOnly", defaultValue = "false") final boolean nonBumiOnly) {
 		final ModelAndView mav = new ModelAndView();
-		try {
+		final long count = databaseService.count();
+		if (count == 0) {
+			mav.addObject("list", new ArrayList<AuctionHouse>());
+		} else {
 			final List<AuctionHouse> list = databaseService
 					.findHighProfitLowCost(profit, value, !nonBumiOnly);
 			mav.addObject("list", list);
-		} catch (final Exception e) {
-			mav.addObject("list", new ArrayList<AuctionHouse>());
-			e.printStackTrace();
 		}
 		mav.addObject("profit", profit);
 		mav.addObject("value", value);

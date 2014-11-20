@@ -119,4 +119,9 @@ public class DatabaseServiceImpl implements DatabaseService {
 		auctionPhraseRepository.addUrl(id, url);
 	}
 
+	@Override
+	public long count() {
+		return auctionHouseRepository.count();
+	}
+
 }
