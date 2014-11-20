@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(type = "auction_date", indexName = "#{elasticsearch['elasticsearch.index']}")
+@Document(type = "auction_date", indexName = "#{elasticsearchconfig['elasticsearch.index']}")
 public class AuctionDate {
 
 	@Id

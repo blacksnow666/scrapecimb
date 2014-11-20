@@ -3,7 +3,7 @@ package com.twistlet.scrapecimb.model.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-@Document(type = "auction_area", indexName = "#{elasticsearch['elasticsearch.index']}")
+@Document(type = "auction_area", indexName = "#{elasticsearchconfig['elasticsearch.index']}")
 public class AuctionArea {
 
 	@Id

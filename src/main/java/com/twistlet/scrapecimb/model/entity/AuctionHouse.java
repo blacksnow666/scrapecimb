@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Document(type = "auction_house", indexName = "#{elasticsearch['elasticsearch.index']}")
+@Document(type = "auction_house", indexName = "#{elasticsearchconfig['elasticsearch.index']}")
 public class AuctionHouse {
 
 	@Id

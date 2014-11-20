@@ -12,6 +12,6 @@
 		location="classpath:url.properties, classpath:selector.properties, classpath:regex.properties" />
 
 
-	<util:properties id="elasticsearch"
+	<util:properties id="elasticsearchconfig"
 		location="classpath:elasticsearch.properties" />
 </beans>
