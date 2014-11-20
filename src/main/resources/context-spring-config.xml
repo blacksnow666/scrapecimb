@@ -9,7 +9,7 @@
 	<context:annotation-config />
 
 	<context:property-placeholder
-		location="classpath:url.properties, classpath:mongodb.properties, classpath:selector.properties, classpath:regex.properties" />
+		location="classpath:url.properties, classpath:selector.properties, classpath:regex.properties" />
 
 
 	<util:properties id="elasticsearch"
