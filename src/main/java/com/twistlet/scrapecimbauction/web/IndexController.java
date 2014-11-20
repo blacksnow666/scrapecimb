@@ -1,5 +1,6 @@
 package com.twistlet.scrapecimbauction.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,14 @@ public class IndexController {
 			@RequestParam(value = "value", defaultValue = "100000") final double value,
 			@RequestParam(value = "nonBumiOnly", defaultValue = "false") final boolean nonBumiOnly) {
 		final ModelAndView mav = new ModelAndView();
-		final List<AuctionHouse> list = databaseService.findHighProfitLowCost(
-				profit, value, !nonBumiOnly);
-		mav.addObject("list", list);
+		try {
+			final List<AuctionHouse> list = databaseService
+					.findHighProfitLowCost(profit, value, !nonBumiOnly);
+			mav.addObject("list", list);
+		} catch (final Exception e) {
+			mav.addObject("list", new ArrayList<AuctionHouse>());
+			e.printStackTrace();
+		}
 		mav.addObject("profit", profit);
 		mav.addObject("value", value);
 		mav.addObject("nonBumiOnly", nonBumiOnly);
