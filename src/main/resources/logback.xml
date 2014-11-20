@@ -21,7 +21,6 @@
 
 	<logger name="com.twistlet.scrapecimb.model.service" level="INFO" />
 	<logger name="org.springframework.data" level="INFO" />
-	<logger name="com.mongodb" level="INFO" />
 	<logger name="org.springframework.retry.support" level="INFO" />
 	<logger name="com.openpojo.validation.test.impl" level="WARN" />
 
