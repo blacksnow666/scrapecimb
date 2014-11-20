@@ -3,20 +3,21 @@ package com.twistlet.scrapecimb.model.entity;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document
+@Document(type = "auction_phrase", indexName = "#{elasticsearch['elasticsearch.index']}")
 public class AuctionPhrase {
 
 	@Id
 	private String id;
-	@Indexed
 	private String name;
-	@Indexed
 	private int count;
 	private String state;
 	private String area;
+
+	@Field(type = FieldType.Nested)
 	private Set<String> url;
 
 	public String getId() {

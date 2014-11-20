@@ -49,8 +49,8 @@ public class DatabaseServiceImpl implements DatabaseService {
 							value, new PageRequest(0, 500, Direction.DESC,
 									"difference"));
 		} else {
-			List<String> list = Arrays
-					.asList("Bumiputra Lot", "Malay Reserved");
+			final List<String> list = Arrays.asList("Bumiputra Lot",
+					"Malay Reserved");
 			return auctionHouseRepository
 					.findByDifferenceGreaterThanAndPriceAuctionLessThanAndRestrictionNotIn(
 							profit, value, list, new PageRequest(0, 500,
@@ -60,7 +60,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 	@Override
 	public void saveAuctionHouse(final AuctionHouse auctionHouse) {
-		for (EnrichAuctionHouseService enrichAuctionHouseService : listEnrichAuctionHouseService) {
+		for (final EnrichAuctionHouseService enrichAuctionHouseService : listEnrichAuctionHouseService) {
 			enrichAuctionHouseService.enrich(auctionHouse);
 		}
 		auctionHouseRepository.save(auctionHouse);
@@ -68,7 +68,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 	}
 
 	@Override
-	public List<AuctionArea> listAuctionArea() {
+	public Iterable<AuctionArea> listAuctionArea() {
 		return auctionAreaRepository.findAll();
 	}
 
@@ -94,16 +94,17 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 	@Override
 	public List<AuctionHouse> listAuctionHouse() {
-		PageRequest pageRequest = new PageRequest(0, 10_000);
-		Page<AuctionHouse> page = auctionHouseRepository.findAll(pageRequest);
+		final PageRequest pageRequest = new PageRequest(0, 10_000);
+		final Page<AuctionHouse> page = auctionHouseRepository
+				.findAll(pageRequest);
 		return page.getContent();
 	}
 
 	@Override
 	public List<AuctionPhrase> findAuctionPhrase(final String keyword,
 			final String state, final String area) {
-		PageRequest pageRequest = new PageRequest(0, 10_000);
-		Page<AuctionPhrase> page = auctionPhraseRepository
+		final PageRequest pageRequest = new PageRequest(0, 10_000);
+		final Page<AuctionPhrase> page = auctionPhraseRepository
 				.findByNameAndStateAndArea(keyword, state, area, pageRequest);
 		return page.getContent();
 	}

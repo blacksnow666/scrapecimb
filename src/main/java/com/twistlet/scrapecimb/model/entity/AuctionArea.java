@@ -1,22 +1,18 @@
 package com.twistlet.scrapecimb.model.entity;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-@Document
+@Document(type = "auction_area", indexName = "#{elasticsearch['elasticsearch.index']}")
 public class AuctionArea {
 
 	@Id
 	private String id;
 
-	@Indexed
 	private String state;
 
-	@Indexed
 	private String area;
 
-	@Indexed
 	private String name;
 
 	private String expression;

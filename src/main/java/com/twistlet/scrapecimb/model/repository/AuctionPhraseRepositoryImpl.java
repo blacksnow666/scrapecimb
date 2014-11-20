@@ -1,28 +1,34 @@
 package com.twistlet.scrapecimb.model.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.query.GetQuery;
+import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
 
 import com.twistlet.scrapecimb.model.entity.AuctionPhrase;
 
 public class AuctionPhraseRepositoryImpl implements
 		AuctionPhraseRepositoryCustom {
 
-	private final MongoOperations mongoOperations;
+	private final ElasticsearchOperations elasticsearchOperations;
 
 	@Autowired
-	public AuctionPhraseRepositoryImpl(final MongoOperations mongoOperations) {
-		this.mongoOperations = mongoOperations;
+	public AuctionPhraseRepositoryImpl(
+			final ElasticsearchOperations elasticsearchOperations) {
+		this.elasticsearchOperations = elasticsearchOperations;
 	}
 
 	@Override
 	public void addUrl(final String id, final String url) {
-		Query query = new Query(Criteria.where("id").is(id));
-		Update update = new Update().addToSet("url", url).inc("count", 1);
-		mongoOperations.findAndModify(query, update, AuctionPhrase.class);
+		final GetQuery query = new GetQuery();
+		query.setId(id);
+		final AuctionPhrase item = elasticsearchOperations.queryForObject(
+				query, AuctionPhrase.class);
+		item.getUrl().add(url);
+		item.setCount(item.getUrl().size());
+		final IndexQueryBuilder indexQueryBuilder = new IndexQueryBuilder();
+		indexQueryBuilder.withId(id);
+		indexQueryBuilder.withObject(item);
+		elasticsearchOperations.index(indexQueryBuilder.build());
 	}
-
 }

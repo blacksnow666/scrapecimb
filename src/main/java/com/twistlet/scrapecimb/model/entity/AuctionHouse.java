@@ -3,65 +3,49 @@ package com.twistlet.scrapecimb.model.entity;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Document
+@Document(type = "auction_house", indexName = "#{elasticsearch['elasticsearch.index']}")
 public class AuctionHouse {
 
 	@Id
 	private String url;
 
-	@Indexed
 	private String ref;
 
-	@Indexed
 	private Double priceAuction;
 
-	@Indexed
 	private Double priceMarket;
 
-	@Indexed
 	private Double percentage;
 
-	@Indexed
 	private Double difference;
 
 	private String address;
 
-	@Indexed
 	private String area;
 
-	@Indexed
 	private String state;
 
-	@Indexed
 	private Double sqFeet;
 
-	@Indexed
 	private String restriction;
 
-	@Indexed
 	private String propertyDescription;
 
 	@JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss aa", timezone = "Asia/Kuala_Lumpur")
 	private Date auctionDate;
 
-	@Indexed
 	private String auctionLocation;
 
-	@Indexed
 	private String auctionCompany;
 
-	@Indexed
 	private Long auctionId;
 
-	@Indexed
 	private String housingArea;
 
-	@Indexed
 	private Integer previousAuctionCount;
 
 	public String getUrl() {

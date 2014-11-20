@@ -58,23 +58,23 @@ public class DatabaseServiceImplTest {
 
 	@Test
 	public void testFindHighProfitLowCostBumiAndNonBumi() {
-		List<AuctionHouse> listFromDb = sut
-				.findHighProfitLowCost(10, 100, true);
+		final List<AuctionHouse> listFromDb = sut.findHighProfitLowCost(10,
+				100, true);
 		assertSame(listAll, listFromDb);
 	}
 
 	@Test
 	public void testFindHighProfitLowCostNonBumiOnly() {
-		List<AuctionHouse> listFromDb = sut.findHighProfitLowCost(10, 100,
-				false);
+		final List<AuctionHouse> listFromDb = sut.findHighProfitLowCost(10,
+				100, false);
 		assertSame(listNonBumiOnly, listFromDb);
 	}
 
 	@Test
 	public void testListAuctionArea() {
-		List<AuctionArea> list = new ArrayList<AuctionArea>();
+		final Iterable<AuctionArea> list = new ArrayList<AuctionArea>();
 		when(auctionAreaRepository.findAll()).thenReturn(list);
-		List<AuctionArea> fromDb = sut.listAuctionArea();
+		final Iterable<AuctionArea> fromDb = sut.listAuctionArea();
 		assertSame(list, fromDb);
 	}
 

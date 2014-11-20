@@ -10,11 +10,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<spring.version>4.0.6.RELEASE</spring.version>
-		<spring.integration.version>4.0.3.RELEASE</spring.integration.version>
+		<spring.version>4.1.2.RELEASE</spring.version>
+		<spring.integration.version>4.1.0.RELEASE</spring.integration.version>
 		<slf4j.version>1.7.7</slf4j.version>
-		<jackson.version>2.4.1</jackson.version>
-		<powermock.version>1.5.5</powermock.version>
+		<jackson.version>2.4.3</jackson.version>
+		<powermock.version>1.5.6</powermock.version>
 		<asm.version>5.0.3</asm.version>
 	</properties>
 	<dependencies>
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-			<version>1.9.5</version>
+			<version>1.10.8</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>com.googlecode.openpojo</groupId>
 			<artifactId>openpojo</artifactId>
-			<version>0.5.1</version>
+			<version>0.6.2</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -88,6 +88,11 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<!-- Spring Integration -->
 		<dependency>
@@ -99,8 +104,13 @@
 		<!-- Spring Data -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.5.2.RELEASE</version>
+			<artifactId>spring-data-elasticsearch</artifactId>
+			<version>1.1.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>1.4.0</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -139,6 +149,7 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -146,6 +157,19 @@
 			<version>2.6</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+			<scope>runtime</scope>
+		</dependency>
+
 
 		<!-- Jackson -->
 		<dependency>
@@ -174,7 +198,7 @@
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
-			<version>1.2.5</version>
+			<version>1.2.7</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -187,7 +211,7 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
-			<version>3.2.0</version>
+			<version>3.3.1</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -220,9 +244,15 @@
 			<version>1.11.0</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.18.2-GA</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>scrapemudah</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -237,7 +267,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
+				<version>2.18</version>
 				<configuration>
 					<argLine>-Duser.timezone=Asia/Kuala_Lumpur</argLine>
 				</configuration>
