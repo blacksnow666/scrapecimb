@@ -9,10 +9,17 @@
 		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd">
 
 
-	<elasticsearch:transport-client
+	<elasticsearch:transport-client id="elasticsearch"
 		cluster-nodes="127.0.0.1:9300" cluster-name="elasticsearch" />
 
 	<elasticsearch:repositories base-package="com.twistlet.scrapecimb.model.repository" />
+
+	<bean id="elasticsearchTemplate"
+		class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+		<constructor-arg>
+			<ref bean="elasticsearch" />
+		</constructor-arg>
+	</bean>
 
 </beans>
 
