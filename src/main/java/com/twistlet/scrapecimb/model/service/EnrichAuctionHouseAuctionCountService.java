@@ -21,17 +21,20 @@ public class EnrichAuctionHouseAuctionCountService implements
 		EnrichAuctionHouseService {
 
 	private final AuctionDateRepository auctionDateRepository;
+	private final DateFormatService dateFormatService;
 
 	@Autowired
 	public EnrichAuctionHouseAuctionCountService(
-			final AuctionDateRepository auctionDateRepository) {
+			final AuctionDateRepository auctionDateRepository,
+			final DateFormatService dateFormatService) {
 		this.auctionDateRepository = auctionDateRepository;
+		this.dateFormatService = dateFormatService;
 	}
 
 	@Override
 	public void enrich(final AuctionHouse auctionHouse) {
-		String ref = auctionHouse.getRef();
-		Date dateOnly = DateUtils.truncate(auctionHouse.getAuctionDate(),
+		final String ref = auctionHouse.getRef();
+		final Date dateOnly = DateUtils.truncate(auctionHouse.getAuctionDate(),
 				Calendar.DATE);
 		AuctionDate item = auctionDateRepository.findOne(ref);
 		if (item == null) {
@@ -39,24 +42,25 @@ public class EnrichAuctionHouseAuctionCountService implements
 			item.setId(ref);
 			item.setAuctionDatePrices(new ArrayList<AuctionDatePrice>());
 		}
-		Set<Date> dates = toDateSet(item.getAuctionDatePrices());
-		if (dates.add(dateOnly)) {
-			AuctionDatePrice auctionDatePrice = new AuctionDatePrice();
-			auctionDatePrice.setDate(dateOnly);
+		final Set<String> dates = toDateSet(item.getAuctionDatePrices());
+		final String formattedDateOnly = dateFormatService.format(dateOnly);
+		if (dates.add(formattedDateOnly)) {
+			final AuctionDatePrice auctionDatePrice = new AuctionDatePrice();
+			auctionDatePrice.setDate(formattedDateOnly);
 			auctionDatePrice.setPrice(auctionHouse.getPriceAuction());
-			List<AuctionDatePrice> list = new ArrayList<>(
+			final List<AuctionDatePrice> list = new ArrayList<>(
 					item.getAuctionDatePrices());
 			list.add(auctionDatePrice);
 			item.setAuctionDatePrices(list);
 			auctionDateRepository.save(item);
 		}
-		int count = dates.size();
+		final int count = dates.size();
 		auctionHouse.setPreviousAuctionCount(new Integer(count - 1));
 	}
 
-	private Set<Date> toDateSet(final List<AuctionDatePrice> auctionDatePrices) {
-		Set<Date> set = new LinkedHashSet<Date>();
-		for (AuctionDatePrice auctionDatePrice : auctionDatePrices) {
+	private Set<String> toDateSet(final List<AuctionDatePrice> auctionDatePrices) {
+		final Set<String> set = new LinkedHashSet<String>();
+		for (final AuctionDatePrice auctionDatePrice : auctionDatePrices) {
 			set.add(auctionDatePrice.getDate());
 		}
 		return set;

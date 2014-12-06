@@ -1,9 +1,7 @@
 package com.twistlet.scrapecimb.model.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.text.ParseException;
 import java.util.Arrays;
@@ -32,32 +30,36 @@ public class EnrichAuctionHouseAuctionCountServiceTest {
 	@Before
 	public void init() {
 		MockitoAnnotations.initMocks(this);
-		sut = new EnrichAuctionHouseAuctionCountService(auctionDateRepository);
+		sut = new EnrichAuctionHouseAuctionCountService(auctionDateRepository,
+				new DateFormatServiceImpl());
 	}
 
 	@Test
 	public void testSaveSecondTimeAuctionedHouse() throws ParseException {
-		FastDateFormat df = FastDateFormat.getInstance("yyyy-MM-dd hh:mm aa");
-		Date auctionDate = df.parse("2010-10-20 10:00 am");
-		Date existingDate = DateUtils.truncate(auctionDate, Calendar.DATE);
-		Date existingDate1 = DateUtils.addDays(existingDate, -1);
-		Date existingDate2 = DateUtils.addDays(existingDate, -2);
+		final FastDateFormat df = FastDateFormat
+				.getInstance("yyyy-MM-dd hh:mm aa");
+		final DateFormatService dateFormatService = new DateFormatServiceImpl();
+		final Date auctionDate = df.parse("2010-10-20 10:00 am");
+		final Date existingDate = DateUtils
+				.truncate(auctionDate, Calendar.DATE);
+		final Date existingDate1 = DateUtils.addDays(existingDate, -1);
+		final Date existingDate2 = DateUtils.addDays(existingDate, -2);
 
-		ArgumentCaptor<AuctionDate> dateCaptor = ArgumentCaptor
+		final ArgumentCaptor<AuctionDate> dateCaptor = ArgumentCaptor
 				.forClass(AuctionDate.class);
 
-		AuctionDate item = new AuctionDate();
-		AuctionDatePrice auctionDatePrice1 = new AuctionDatePrice();
-		auctionDatePrice1.setDate(existingDate1);
+		final AuctionDate item = new AuctionDate();
+		final AuctionDatePrice auctionDatePrice1 = new AuctionDatePrice();
+		auctionDatePrice1.setDate(dateFormatService.format(existingDate1));
 		auctionDatePrice1.setPrice(10.00);
-		AuctionDatePrice auctionDatePrice2 = new AuctionDatePrice();
-		auctionDatePrice2.setDate(existingDate2);
+		final AuctionDatePrice auctionDatePrice2 = new AuctionDatePrice();
+		auctionDatePrice2.setDate(dateFormatService.format(existingDate2));
 		auctionDatePrice2.setPrice(10.00);
 		item.setAuctionDatePrices(Arrays.asList(auctionDatePrice1,
 				auctionDatePrice2));
 		when(auctionDateRepository.findOne("ID#1")).thenReturn(item);
 
-		AuctionHouse auctionHouse = new AuctionHouse();
+		final AuctionHouse auctionHouse = new AuctionHouse();
 		auctionHouse.setAuctionDate(auctionDate);
 		auctionHouse.setRef("ID#1");
 		auctionHouse.setPriceAuction(10_000.00);
@@ -70,24 +72,27 @@ public class EnrichAuctionHouseAuctionCountServiceTest {
 
 	@Test
 	public void testSaveSecondTimeAuctionedHouseReRun() throws ParseException {
-		FastDateFormat df = FastDateFormat.getInstance("yyyy-MM-dd hh:mm aa");
-		Date auctionDate = df.parse("2010-10-20 10:00 am");
-		Date existingDate = DateUtils.truncate(auctionDate, Calendar.DATE);
-		Date existingDate1 = DateUtils.addDays(existingDate, -1);
+		final DateFormatService dateFormatService = new DateFormatServiceImpl();
+		final FastDateFormat df = FastDateFormat
+				.getInstance("yyyy-MM-dd hh:mm aa");
+		final Date auctionDate = df.parse("2010-10-20 10:00 am");
+		final Date existingDate = DateUtils
+				.truncate(auctionDate, Calendar.DATE);
+		final Date existingDate1 = DateUtils.addDays(existingDate, -1);
 
-		AuctionDatePrice auctionDatePrice = new AuctionDatePrice();
-		auctionDatePrice.setDate(existingDate);
+		final AuctionDatePrice auctionDatePrice = new AuctionDatePrice();
+		auctionDatePrice.setDate(dateFormatService.format(existingDate));
 		auctionDatePrice.setPrice(10.00);
-		AuctionDatePrice auctionDatePrice1 = new AuctionDatePrice();
-		auctionDatePrice1.setDate(existingDate1);
+		final AuctionDatePrice auctionDatePrice1 = new AuctionDatePrice();
+		auctionDatePrice1.setDate(dateFormatService.format(existingDate1));
 		auctionDatePrice1.setPrice(10.00);
 
-		AuctionDate item = new AuctionDate();
+		final AuctionDate item = new AuctionDate();
 		item.setAuctionDatePrices(Arrays.asList(auctionDatePrice,
 				auctionDatePrice1));
 		when(auctionDateRepository.findOne("ID#1")).thenReturn(item);
 
-		AuctionHouse auctionHouse = new AuctionHouse();
+		final AuctionHouse auctionHouse = new AuctionHouse();
 		auctionHouse.setAuctionDate(auctionDate);
 		auctionHouse.setRef("ID#1");
 		sut.enrich(auctionHouse);
@@ -99,7 +104,7 @@ public class EnrichAuctionHouseAuctionCountServiceTest {
 
 	@Test
 	public void testSaveFirstTimeAuctionedHouse() throws ParseException {
-		AuctionHouse auctionHouse = new AuctionHouse();
+		final AuctionHouse auctionHouse = new AuctionHouse();
 		auctionHouse.setRef("ID#1");
 		auctionHouse.setAuctionDate(new Date());
 		auctionHouse.setPriceAuction(10_000.00);
