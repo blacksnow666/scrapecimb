@@ -1,6 +1,5 @@
 package com.twistlet.scrapecimb.model.entity;
 
-import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
@@ -9,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class AuctionDatePrice {
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd HH:mm:ss Z")
+	@Field(type = FieldType.String)
 	private String date;
 
 	private double price;

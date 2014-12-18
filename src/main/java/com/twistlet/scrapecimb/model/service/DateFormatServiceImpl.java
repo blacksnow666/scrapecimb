@@ -10,7 +10,7 @@ public class DateFormatServiceImpl implements DateFormatService {
 
 	@Override
 	public String format(final Date date) {
-		final FastDateFormat df = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss Z");
+		final FastDateFormat df = FastDateFormat.getInstance("yyyy-MM-dd");
 		return df.format(date);
 	}
 
